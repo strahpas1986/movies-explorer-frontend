@@ -31,7 +31,6 @@
   border: none;
   background-color: #FFFFFF;
   cursor: pointer;
-  font-family: var(--main-font);
   font-size: 13px;
   font-weight: 400;
   line-height: 1.23;
@@ -43,7 +42,7 @@
 }
 
 .profile__btn-action_type_exit {
-  color: var(--red);
+  color: #ee3465;
 }
 
 @media screen and (max-width: 990px) {

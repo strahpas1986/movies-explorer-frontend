@@ -22,19 +22,17 @@
   margin: 0;
   padding-bottom: 20px;
   border-bottom: 1px solid #E8E8E8;
-  font-family: var(--main-font);
   font-weight: 400;
   font-size: 13px;
   line-height: 1.23;
   text-align: center;
-  color: var(--text-grey);
+  color: #8b8b8b;
 }
 
 .footer__copyright {
   grid-area: copyright;
   margin-top: 20px;
   margin-bottom: 0;
-  font-family: var(--main-font);
   font-weight: 400;
   font-size: 13px;
   line-height: 1.23;
@@ -53,7 +51,6 @@
 }
 
 .footer__link {
-  font-family: var(--main-font);
   font-weight: 400;
   font-size: 13px;
   text-decoration: none;

@@ -7,7 +7,6 @@
 }
 
 .movies-card-list__not-found {
-  font-family: var(--main-font);
   font-size: 40px;
   font-weight: 500;
   line-height: 1.25;
@@ -38,7 +37,6 @@
   border-radius: 6px;
   background-color: #F4F4F4;
   cursor: pointer;
-  font-family: var(--main-font);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.25;

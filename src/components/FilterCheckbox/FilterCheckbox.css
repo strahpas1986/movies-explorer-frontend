@@ -6,7 +6,6 @@
   gap: 12px;
   width: 1140px;
   cursor: pointer;
-  font-family: var(--main-font);
   font-weight: 400;
   font-size: 13px;
   line-height: 1.38;
@@ -59,12 +58,12 @@
 }
 
 .filter-checkbox__toggle:checked + .filter-checkbox__track {
-  background-color: var(--block-bg-color-green);
+  background-color: #3ddc84;
 }
 
 .filter-checkbox__toggle:checked + .filter-checkbox__track::before {
   transform: translate(200%, -50%);
-  background-color: var(--white);
+  background-color: #ffffff;
 }
 
 @media screen and (max-width: 990px) {

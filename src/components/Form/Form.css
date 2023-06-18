@@ -13,7 +13,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  font-family: var(--main-font);
   font-size: 10px;
   font-weight: 400;
   line-height: 1.2;
@@ -29,7 +28,7 @@
   align-items: center;
   padding-top: 17px;
   padding-bottom: 15px;
-  border-bottom: 1px solid var(--divider-bg-color-dark-grey);
+  border-bottom: 1px solid #424242;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.18;
@@ -49,7 +48,6 @@
   border-bottom: 1px solid #F4F4F4;
   outline: none;
   background-color: #FFFFFF;
-  font-family: var(--main-font);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.21;
@@ -90,7 +88,6 @@
 .form__error-name {
   margin: 0;
   opacity: 0;
-  font-family: var(--main-font);
   font-size: 10px;
   font-weight: 500;
   line-height: 1.2;
@@ -105,7 +102,6 @@
   display: block;
   min-height: 24px;
   opacity: 0;
-  font-family: var(--main-font);
   font-size: 10px;
   font-weight: 400;
   line-height: 1.2;
@@ -131,7 +127,6 @@
   background-color: #3456F3;
   cursor: pointer;
   transition: var(--opacity);
-  font-family: var(--main-font);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.21;

@@ -28,7 +28,6 @@
 }
 
 .header__link {
-  font-family: var(--main-font);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
@@ -89,8 +88,8 @@
   }
 
   .header__btn-hamburger {
-    width: 22px;
-    height: 22px;
-    margin-right: 9px;
+    width: 40px;
+    height: 43px;
+    margin: 0;;
   }
 }

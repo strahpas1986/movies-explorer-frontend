@@ -10,7 +10,6 @@
 .movies-card__img {
   height: 151px;
   object-fit: cover;
-  font-family: var(--main-font);
   font-size: 13px;
   font-weight: 400;
   line-height: 1.23;
@@ -30,7 +29,6 @@
   -webkit-box-orient: vertical;
   margin: 0;
   max-width: 206px;
-  font-family: var(--main-font);
   font-weight: 500;
   font-size: 13px;
   line-height: 1.23;
@@ -80,11 +78,10 @@
 .movies-card__duration {
   margin: 0;
   padding: 10px 12px 0 12px;
-  font-family: var(--main-font);
   font-weight: 400;
   font-size: 11px;
   line-height: 1.18;
-  color: var(--text-grey);
+  color: #8b8b8b;
 }
 
 @media screen and (max-width: 990px) {
