@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Проект: Навигатор фильмов (frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Дипломный проект выполненный в рамках курса "Веб-разработчик" от Яндекс Практикум. Проект представляет из себя фронтенд часть для проекта [Навигатор фильмов](https://github.com/Bjorn86/movies-explorer-api) также выполненного в рамках указанного выше учебного курса.
 
-## Available Scripts
+## Оглавление
 
-In the project directory, you can run:
+- [Обзор проекта](#обзор-проекта)
+  - [Информация для код-ревью](#информация-для-код-ревью)
+  - [Задачи проекта](#задачи-проекта)
+  - [Функциональность проекта](#функциональность-проекта)
+  - [Screenshot](#screenshot)
+  - [Директории проекта](#директории-проекта)
+  - [Запуск проекта](#запуск-проекта)
+  - [Ссылки](#ссылки)
+- [Ход выполнения проекта](#ход-выполнения-проекта)
+  - [Используемые технологии](#используемые-технологии)
+  - [Чему я научился работая над проектом](#чему-я-научился-работая-над-проектом)
+- [Автор](#автор)
 
-### `npm start`
+## Обзор проекта
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Информация для код-ревью
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Временные файлы имитирующие информацию получаемую от API размещены в директории `src/temp/`
+- Временный код имитирующие работу с API или работу с контекстом помечен комментарием `!TEMP: ...`
+- Ошибки приходящие от сервера, которые по макету необходимо показывать на страницах редактирования профиля, логина, и регистрации, вынесены в компонент ServerErrors. В отсутствии возможности взаимодействия с API, самый длинный текст ошибки захардкоден. При наличии запрета на данном этапе работать с функционалом приложения, данную ошибку можно увидеть только на странице редактирования профиля, при нажатии на кнопку **"Редактировать"**.
+- [Ссылка на макет проекта](https://disk.yandex.ru/d/59bt9dAe_qBJ8w)
 
-### `npm test`
+### Задачи проекта
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Проект был призван закрепить навыки frontend-разработки, фреймворка React, разработки SPA, и работе с React Router.
 
-### `npm run build`
+### Функциональность проекта
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Функционально проект представляет из себя приложение для поиска фильмов как по названию так и формату (короткий метр / полный метр). У пользователя имеется возможность добавить понравившийся фильм в свою коллекцию сохранённых фильмов, при этом в коллекции сохранённых фильмов остаются указанные выше возможности поиска и фильтрации.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Screenshot
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Desktop screenshot](./screenshot/movies-explorer-1.png)
+![Desktop screenshot](./screenshot/movies-explorer-2.png)
 
-### `npm run eject`
+### Директории проекта
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- `src/components` — директория с компонентами
+- `src/contexts` — директория с элементами контекста
+- `src/hooks` — директория с пользовательскими хуками
+- `src/images` — директория с файлами изображений
+- `src/utils` — директория со вспомогательными файлами
+- `src/vendor` — директория с файлами библиотек
+  - `/fonts` — директория со шрифтами
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Запуск проекта
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `npm run build` — запуск проекта в режиме продакшн, с формированием файлов подготовленных к деплою в директории `/build`
+- `npm start` — запуск проекта в режиме разработки
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Ссылки
 
-## Learn More
+- [Ссылка на репозиторий проекта](https://github.com/Bjorn86/movies-explorer-frontend)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Ход выполнения проекта
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Используемые технологии
 
-### Code Splitting
+- HTML
+- CSS
+- JS
+- [React](https://react.dev/)
+- [React Router](https://reactrouter.com/en/main)
+- [Create React App](https://create-react-app.dev/)
+- Адаптивная вёрстка
+- Семантическая вёрстка
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Чему я научился работая над проектом
 
-### Analyzing the Bundle Size
+## Автор
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Данила Легкобытов**
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- e-mail: [legkobytov-danila@yandex.ru](mailto:legkobytov-danila@yandex.ru)
+- Telegram: [@danila_legkobytov](https://t.me/danila_legkobytov)
+- LinkedIn: [in/danila-legkobytov](https://www.linkedin.com/in/danila-legkobytov/)

@@ -1,0 +1,125 @@
+.movies-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+
+.movies-card__img {
+  height: 151px;
+  object-fit: cover;
+  font-family: var(--main-font);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.23;
+  color: #FFFFFF;
+}
+
+.movies-card__caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin: 14px 12px 0 12px;
+
+}
+
+.movies-card__name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  max-width: 206px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.23;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  color: #000000;
+}
+
+.movies-card__btn-action {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--opacity);
+}
+
+.movies-card__btn-action_place_saved-movies {
+  opacity: 0;
+}
+
+.movies-card__btn-action_place_saved-movies:hover {
+  opacity: 1;
+}
+
+.movies-card__btn-like-img {
+  width: 10px;
+  height: 9px;
+  fill: none;
+}
+
+.movies-card__btn-del-img {
+  width: 8px;
+  height: 9px;
+  fill: none;
+}
+
+.movies-card__btn-like-img_active path {
+  fill: #2BE080;
+}
+
+.movies-card__duration {
+  margin: 0;
+  padding: 10px 12px 0 12px;
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.18;
+  color: var(--text-grey);
+}
+
+@media screen and (max-width: 990px) {
+  .movies-card__img {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .movies-card__img {
+    height: 168px;
+  }
+
+  .movies-card__caption {
+    height: 30px;
+    gap: 36px;
+  }
+
+  .movies-card__name {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .movies-card__duration {
+    margin-top: 19px;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .movies-card__btn-action_place_saved-movies {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) and (pointer: fine) {
+  .movies-card__btn-action_place_saved-movies {
+    opacity: 1;
+  }
+}
