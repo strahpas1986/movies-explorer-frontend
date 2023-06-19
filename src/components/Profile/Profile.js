@@ -1,32 +1,29 @@
-//IMPORT PACKAGES
+// Импорт пакетов
 import { useEffect, useState } from "react";
 import useValidation from "../../hooks/useValidation";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./Profile.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import AuthTitle from "../AuthTitle/AuthTitle";
 import Form from "../Form/Form";
 
-// PROFILE COMPONENT
+// Компонент Profile
 function Profile({ user }) {
-  // HOOKS
+
   const [isEditingBegun, setEditingStatus] = useState(false);
   const { values, errors, isFormValid, onChange, resetValidation } =
     useValidation();
 
-  // HANDLER EDIT CLICK
   function handleEditClick() {
     setEditingStatus(!isEditingBegun);
   }
 
-  // HANDLER SUBMIT
   function handleSubmit(e) {
     e.preventDefault();
   }
 
-  // SET USER DATA TO INPUTS FROM PROFILE
   useEffect(() => {
     resetValidation(true, user);
   }, [resetValidation, user]);

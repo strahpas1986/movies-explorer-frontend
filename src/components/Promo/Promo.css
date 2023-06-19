@@ -47,7 +47,7 @@
   font-weight: 500;
   line-height: 1.33;
   color: #000000;
-  transition: var(--opacity);
+  transition: opacity 0.5s;
 }
 
 .promo__img {

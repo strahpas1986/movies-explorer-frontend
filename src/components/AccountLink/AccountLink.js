@@ -1,10 +1,10 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { Link } from "react-router-dom";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./AccountLink.css";
 
-// ACCOUNT LINK COMPONENT
+// компонент AccountLink
 function AccountLink({ isSideMenu, onClose }) {
   return (
     <Link
@@ -19,4 +19,5 @@ function AccountLink({ isSideMenu, onClose }) {
   );
 }
 
+// экспорт компонента
 export default AccountLink;

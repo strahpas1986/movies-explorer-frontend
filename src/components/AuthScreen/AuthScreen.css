@@ -19,7 +19,7 @@
 .auth-screen__link {
   text-decoration: none;
   color: #4285f4;
-  transition: var(--opacity);
+  transition: opacity 0.5s;
 }
 
 @media screen and (max-width: 990px) {

@@ -1,15 +1,15 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { Link } from "react-router-dom";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./AuthScreen.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import Logo from "../Logo/Logo";
 import Form from "../Form/Form";
 import AuthTitle from "../AuthTitle/AuthTitle";
 
-// AUTH SCREEN COMPONENT
+// Компонент AuthScreen
 function AuthScreen({
   title,
   name,

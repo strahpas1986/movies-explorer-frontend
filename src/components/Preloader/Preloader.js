@@ -1,7 +1,7 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./Preloader.css";
 
-// PRELOADER COMPONENT
+// Компонент Preloader
 function Preloader() {
   return (
     <div className="preloader">

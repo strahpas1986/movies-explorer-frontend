@@ -1,10 +1,10 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./MoviesCardList.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-// MOVIES CARD LIST COMPONENT
+// Компонент MoviesCardList
 function MoviesCardList({ cards, isLiked, onCardLike }) {
   return (
     <section

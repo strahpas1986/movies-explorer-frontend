@@ -1,15 +1,14 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { useNavigate } from "react-router-dom";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./NotFound.css";
 
-// NOT FOUND COMPONENT
+// Компонент NotFound
 function NotFound() {
-  // HOOKS
+
   const navigate = useNavigate();
 
-  // HANDLE BUTTON BACK CLICK
   function handleBtnBackClick() {
     if (window.history.state && window.history.state.idx > 0) {
       navigate(-1);

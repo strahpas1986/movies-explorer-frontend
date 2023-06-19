@@ -1,19 +1,19 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./Main.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import Promo from "../Promo/Promo";
 import AboutProject from "../AboutProject/AboutProject";
-import Techs from "../Techs/Techs";
+import Technology from "../Technology/Technology";
 import AboutMe from "../AboutMe/AboutMe";
 
-// MAIN COMPONENT
+// Компонент Main
 function Main({ onAnchorClick, aboutRef }) {
   return (
     <main className="main">
       <Promo onAnchorClick={onAnchorClick} aboutRef={aboutRef} />
       <AboutProject aboutRef={aboutRef} />
-      <Techs />
+      <Technology />
       <AboutMe />
     </main>
   );

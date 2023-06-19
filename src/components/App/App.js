@@ -1,11 +1,11 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { useEffect, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./App.css";
 
-// IMPORT COMPONENTS
+// Импорты компонентов
 import AppLayout from "../AppLayout/AppLayout";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
@@ -13,45 +13,44 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
-import Registr from "../Register/Register";
+import Register from "../Register/Register";
 import NotFound from "../NotFound/NotFound";
 
-// !TEMP: IMPORT TEMP FILES
+// Временная мера: импорт json
 import moviesCards from "../../temp/data.json";
 import moviesSavedCards from "../../temp/savedData.json";
 import userData from "../../temp/userData.json";
 
-// APP COMPONENT
+// компонент App
 function App() {
-  // HOOKS
   const [isSideMenuOpen, setSideMenuStatus] = useState(false);
   const [isFilterOn, setFilter] = useState(false);
   const [cards, setCards] = useState([]);
   const [savedCards, setSavedCards] = useState([]);
-  const [isLiked, setLike] = useState(false); // !TEMP: Временный вариант
+  const [isLiked, setLike] = useState(false); // Временный вариант
   const aboutOnClickRef = useRef(null);
 
-  // HANDLER OPEN SIDE MENU
+  // Функция открытия меню
   function handleOpenSideMenu() {
     setSideMenuStatus(!isSideMenuOpen);
   }
 
-  // HANDLER CLOSE SIDE MENU
+  // Функция закрытия меню
   function handleCloseSideMenu() {
     setSideMenuStatus(false);
   }
 
-  // HANDLER FILTER CHANGE
+  // Функция фильтра
   function handleFilterChange(evt) {
     setFilter(evt);
   }
 
-  // !TEMP: HANDLER CARD LIKE
+  // Функция лайка (при добавлении функционала JS на 4 этапе будет переделана)
   function handleCardLike() {
     setLike(!isLiked);
   }
 
-  // HANDLER SMOOTH SCROLL EFFECT
+  // Функция эффекта скролла
   function handleScrollEffect(targetRef) {
     targetRef.current.scrollIntoView({
       behavior: "smooth",
@@ -59,7 +58,7 @@ function App() {
     });
   }
 
-  // !TEMP: SET DATA
+  // Временно
   useEffect(() => {
     setCards(moviesCards);
     setSavedCards(moviesSavedCards);
@@ -106,7 +105,7 @@ function App() {
           <Route path="/profile" element={<Profile user={userData} />} />
         </Route>
         <Route path="/signin" element={<Login />} />
-        <Route path="/signup" element={<Registr />} />
+        <Route path="/signup" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <HamburgerMenu

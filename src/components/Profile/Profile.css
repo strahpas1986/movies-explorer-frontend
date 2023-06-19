@@ -34,7 +34,7 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 1.23;
-  transition: var(--opacity);
+  transition: opacity 0.5s;
 }
 
 .profile__btn-action_type_edit {

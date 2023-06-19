@@ -1,7 +1,7 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./Portfolio.css";
 
-// PORTFOLIO COMPONENT
+// Компонент Portfolio
 function Portfolio() {
   return (
     <div className="portfolio">

@@ -55,7 +55,7 @@
   font-size: 13px;
   text-decoration: none;
   color: #000000;
-  transition: var(--opacity);
+  transition: opacity 0.5s;
 }
 
 @media screen and (max-width: 990px) {

@@ -1,7 +1,7 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./FilterCheckbox.css";
 
-// FILTER CHECKBOX COMPONENT
+// Компонент FilterCheckbox
 function FilterCheckbox({ onFilterChange, isFilterOn }) {
   return (
     <label className="filter-checkbox">

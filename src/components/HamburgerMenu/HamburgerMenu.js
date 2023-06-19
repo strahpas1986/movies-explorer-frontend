@@ -1,12 +1,12 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./HamburgerMenu.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import Overlay from "../Overlay/Overlay";
 import AccountLink from "../AccountLink/AccountLink";
 import Navigation from "../Navigation/Navigation";
 
-// HAMBURGER MENU COMPONENT
+// Компонент HamburgerMenu
 function HamburgerMenu({ isSideMenuOpen, onClose }) {
   return (
     <Overlay isActive={isSideMenuOpen} onClose={onClose}>

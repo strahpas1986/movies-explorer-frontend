@@ -1,18 +1,17 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import useValidation from "../../hooks/useValidation";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./Register.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import AuthScreen from "../AuthScreen/AuthScreen";
 
-// LOGIN COMPONENT
-function Registr() {
-  // HOOKS
+// Компонент Register
+function Register() {
+
   const { values, errors, isFormValid, onChange } = useValidation();
 
-  // HANDLER SUBMIT
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -101,4 +100,4 @@ function Registr() {
   );
 }
 
-export default Registr;
+export default Register;

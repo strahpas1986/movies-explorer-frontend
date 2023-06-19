@@ -1,10 +1,10 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./AboutProject.css";
 
-// IMPORT COMPONENTS
+// Импорт компонента
 import SectionTitle from "../SectionTitle/SectionTitle";
 
-// ABOUT PROJECT COMPONENT
+// компонент AboutProject
 function AboutProject({ aboutRef }) {
   return (
     <section className="about-project" ref={aboutRef}>

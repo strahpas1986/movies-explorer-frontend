@@ -1,16 +1,16 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./AboutMe.css";
 
-// IMPORT IMAGES
+// Импорт фото
 import author from "../../images/author-foto.jpg";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import SectionTitle from "../SectionTitle/SectionTitle";
 import Portfolio from "../Portfolio/Portfolio";
 
-// ABOUT ME COMPONENT
+// Компонент Обо мне
 function AboutMe() {
-  // CALCULATE AGE
+  // Функция вычисления количества лет
   function calculateAge() {
     const birthDate = new Date(1986, 3, 21);
     const todayDate = new Date();
@@ -24,9 +24,9 @@ function AboutMe() {
   return (
     <section className="about-me">
       <SectionTitle title="Студент" />
-      <article className="about-me__bio">
+      <article className="about-me__title">
         <h3 className="about-me__name">Владимир</h3>
-        <p className="about-me__profession">
+        <p className="about-me__subtitle">
           Фронтенд-разработчик, {calculateAge()} лет
         </p>
         <p className="about-me__text">
@@ -41,7 +41,7 @@ function AboutMe() {
           Github
         </a>
         <img
-          className="about-me__img"
+          className="about-me__image"
           src={author}
           alt="Фотография разработчика"
         />

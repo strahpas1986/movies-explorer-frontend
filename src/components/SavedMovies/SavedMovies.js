@@ -1,11 +1,11 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./SavedMovies.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 
-// SAVED MOVIES COMPONENT
+// Компонент SavedMovies
 function SavedMovies({ cards, onFilterChange, isFilterOn }) {
   return (
     <main className="saved-movies">

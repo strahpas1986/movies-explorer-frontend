@@ -1,7 +1,7 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./ServerErrors.css";
 
-// SERVER ERRORS COMPONENT
+// Компонент ServerErrors
 function ServerErrors({ isEditingBegun, place }) {
   return (
     <p
@@ -9,7 +9,7 @@ function ServerErrors({ isEditingBegun, place }) {
         isEditingBegun ? "server-errors_active" : ""
       }`}
     >
-      {/* !TEMP: В отсутствии возможности взаимодействия с API самый длинный текст ошибки захардкоден */}
+      {/* В отсутствии возможности взаимодействия с API самый длинный текст ошибки захардкоден */}
       При авторизации произошла ошибка. Токен не&nbsp;передан или передан
       не&nbsp;в&nbsp;том формате.
     </p>

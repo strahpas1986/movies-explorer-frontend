@@ -1,11 +1,11 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./Movies.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-//MOVIES COMPONENT
+// Компонент Movies
 function Movies({ cards, onFilterChange, isFilterOn, isLiked, onCardLike }) {
   return (
     <main className="movies">

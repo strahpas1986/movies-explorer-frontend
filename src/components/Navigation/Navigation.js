@@ -1,12 +1,12 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { Link, useLocation } from "react-router-dom";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./Navigation.css";
 
-// NAVIGATION COMPONENT
+// Компонент Navigation
 function Navigation({ isSideMenu, onClose }) {
-  // HOOKS
+
   const location = useLocation();
 
   return (

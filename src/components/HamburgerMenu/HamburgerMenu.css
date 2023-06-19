@@ -29,7 +29,7 @@
   align-self: flex-end;
   background: url("../../images/close-icon.svg") center center/contain no-repeat;
   cursor: pointer;
-  transition: var(--opacity);
+  transition: opacity 0.5s;
 }
 
 @media screen and (max-width: 620px) {

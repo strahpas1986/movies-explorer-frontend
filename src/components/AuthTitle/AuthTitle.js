@@ -1,7 +1,7 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./AuthTitle.css";
 
-// AUTH TITLE COMPONENT
+// Компонент AuthTitle
 function AuthTitle({ title, place }) {
   return (
     <h1

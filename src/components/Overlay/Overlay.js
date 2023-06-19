@@ -1,15 +1,15 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { useEffect } from "react";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./Overlay.css";
 
-// IMPORT VARIABLES
+// Импорт переменных
 import { ESC_KEY } from "../../utils/constants";
 
-// OVERLAY COMPONENT
+// Компонент Overlay
 function Overlay({ isActive, onClose, ...props }) {
-  // HANDLER CLOSE BY ESC BUTTON
+
   useEffect(() => {
     function handleEscClose(evt) {
       if (evt.key === ESC_KEY) {
@@ -22,7 +22,6 @@ function Overlay({ isActive, onClose, ...props }) {
     }
   }, [isActive, onClose]);
 
-  // HANDLER CLOSE BY CLICK ON OVERLAY
   const closeByClickOnOverlay = (evt) => {
     if (evt.target === evt.currentTarget) {
       onClose();

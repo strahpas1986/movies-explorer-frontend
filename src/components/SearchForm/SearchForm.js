@@ -1,12 +1,12 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./SearchForm.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-// SEARCH FORM COMPONENT
+// Компонент SearchForm
 function SearchForm({ onFilterChange, isFilterOn }) {
-  // HANDLER SUBMIT
+
   function handleSubmit(e) {
     e.preventDefault();
   }

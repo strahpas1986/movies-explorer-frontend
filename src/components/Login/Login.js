@@ -1,18 +1,17 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import useValidation from "../../hooks/useValidation";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./Login.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import AuthScreen from "../AuthScreen/AuthScreen";
 
-// LOGIN COMPONENT
+// Компонент Login
 function Login() {
-  // HOOKS
+
   const { values, errors, isFormValid, onChange } = useValidation();
 
-  // HANDLER SUBMIT
   function handleSubmit(e) {
     e.preventDefault();
   }

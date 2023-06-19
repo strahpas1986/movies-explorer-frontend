@@ -36,7 +36,7 @@
   letter-spacing: -0.04em;
   color: #000000;
   text-decoration: none;
-  transition: var(--opacity);
+  transition: opacity 0.5s;
 }
 
 .portfolio__link-text {

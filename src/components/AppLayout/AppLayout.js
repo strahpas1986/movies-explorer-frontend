@@ -1,13 +1,13 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { Outlet, useLocation } from "react-router-dom";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-// APP LAYOUT COMPONENT
+// Компонент AppLayout
 function AppLayout({ onHamburgerClick }) {
-  // HOOKS
+
   const location = useLocation();
 
   return (

@@ -1,10 +1,10 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./Promo.css";
 
-// IMPORT IMAGES
+// Импорт изображений
 import hero from "../../images/image_bg.svg";
 
-// PROMO COMPONENT
+// Компонент Promo
 function Promo({ onAnchorClick, aboutRef }) {
   return (
     <section className="promo">

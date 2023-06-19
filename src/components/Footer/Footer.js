@@ -1,7 +1,7 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./Footer.css";
 
-// FOOTER COMPONENT
+// Компонент Footer
 function Footer() {
   return (
     <footer className="footer">

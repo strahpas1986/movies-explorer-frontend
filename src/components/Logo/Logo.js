@@ -1,10 +1,10 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { Link } from "react-router-dom";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./Logo.css";
 
-// LOGO COMPONENT
+// Компонент Logo
 function Logo({ place }) {
   return (
     <Link

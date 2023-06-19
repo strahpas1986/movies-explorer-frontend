@@ -1,10 +1,10 @@
-// IMPORT STYLES
+// Импорт стилей
 import "./Form.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import ServerErrors from "../ServerErrors/ServerErrors";
 
-// FORM COMPONENT
+// Компонент Form
 function Form({
   name,
   onSubmit,

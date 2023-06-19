@@ -1,15 +1,15 @@
-// IMPORT PACKAGES
+// Импорт пакетов
 import { Link, Route, Routes } from "react-router-dom";
 
-// IMPORT STYLES
+// Импорт стилей
 import "./Header.css";
 
-// IMPORT COMPONENTS
+// Импорт компонентов
 import Logo from "../Logo/Logo";
 import Navigation from "../Navigation/Navigation";
 import AccountLink from "../AccountLink/AccountLink";
 
-// HEADER COMPONENT
+// Компонент Header
 function Header({ onHamburgerClick }) {
   return (
     <header className="header">
