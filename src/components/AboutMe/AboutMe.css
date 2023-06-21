@@ -108,7 +108,7 @@
 @media screen and (max-width: 748px) {
   .about-me__title {
     grid-template-columns: 1fr;
-    grid-template-rows: 352px repeat(4, min-content);
+    grid-template-rows: 1fr repeat(4, min-content);
     grid-template-areas:
       "img"
       "name"
