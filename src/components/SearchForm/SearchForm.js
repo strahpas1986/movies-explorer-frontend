@@ -24,29 +24,32 @@ function SearchForm({ onFilterChange, isFilterOn }) {
         noValidate
         onSubmit={handleSubmit}
       >
-        <input
-          className="search-form__search"
-          form="search-and-filter"
-          name="search"
-          placeholder="Фильм"
-          type="search"
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-        />
+        <div className="search-form__form_search">
+          <input
+            className="search-form__search"
+            form="search-and-filter"
+            name="search"
+            placeholder="Фильм"
+            type="search"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+          />
+          <button
+            className="search-form__btn-submit hover-button"
+            type="submit"
+            form="search-and-filter"
+          >
+            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 13L7 7L1 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
         <FilterCheckbox
           onFilterChange={onFilterChange}
           isFilterOn={isFilterOn}
         />
-        <button
-          className="search-form__btn-submit hover-button"
-          type="submit"
-          form="search-and-filter"
-        >
-          <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 13L7 7L1 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+
       </form>
     </section>
   );
