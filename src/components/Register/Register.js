@@ -20,7 +20,7 @@ function Register() {
     <main className="registr">
       <AuthScreen
         title="Добро пожаловать!"
-        name="registr"
+        name="register"
         onSubmit={handleSubmit}
         isFormValid={isFormValid}
         buttonText="Зарегистрироваться"
@@ -33,7 +33,7 @@ function Register() {
             }`}
             type="text"
             name="name"
-            form="registr"
+            form="register"
             required
             minLength="2"
             maxLength="30"
@@ -57,7 +57,7 @@ function Register() {
             }`}
             type="email"
             name="email"
-            form="registr"
+            form="register"
             required
             id="email-input"
             onChange={onChange}
@@ -79,7 +79,7 @@ function Register() {
             }`}
             type="password"
             name="password"
-            form="registr"
+            form="register"
             required
             minLength="6"
             maxLength="30"
