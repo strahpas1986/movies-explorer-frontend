@@ -17,7 +17,7 @@ function Register() {
   }
 
   return (
-    <main className="registr">
+    <main className="register">
       <AuthScreen
         title="Добро пожаловать!"
         name="register"

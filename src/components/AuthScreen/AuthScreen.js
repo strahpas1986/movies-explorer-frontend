@@ -30,7 +30,7 @@ function AuthScreen({
       >
         {props.children}
       </Form>
-      {name === "registr" ? (
+      {name === "register" ? (
         <p className="auth-screen__text">
           Уже зарегистрированы?{" "}
           <Link to="/signin" className="auth-screen__link hover-link">
