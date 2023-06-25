@@ -1,11 +1,10 @@
-import { makeRequest } from "./config";
+// Импорт методов
+import { makeRequest } from "./utils";
 
-import { MAINAPI_URL } from "./constants";
+// импорт переменныъ
+import { MOVIESAPI_URL } from "./constants";
 
-export function register({ name, email, password }) {
-  return makeRequest(MAINAPI_URL, "/signup", "POST", true, {
-    name,
-    email,
-    password,
-  });
+// функция запроса карточек
+export function getCards() {
+  return makeRequest(MOVIESAPI_URL, "/beatfilm-movies", "GET");
 }
