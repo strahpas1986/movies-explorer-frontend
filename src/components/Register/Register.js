@@ -35,6 +35,7 @@ function Register() {
             name="name"
             form="register"
             required
+            placeholder="Имя"
             minLength="2"
             maxLength="30"
             id="name-input"
@@ -59,6 +60,7 @@ function Register() {
             name="email"
             form="register"
             required
+            placeholder="pochta@yandex.ru"
             id="email-input"
             onChange={onChange}
             value={values.email || ""}
@@ -81,6 +83,7 @@ function Register() {
             name="password"
             form="register"
             required
+            placeholder="Password"
             minLength="6"
             maxLength="30"
             id="password-input"

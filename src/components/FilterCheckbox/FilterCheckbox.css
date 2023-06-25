@@ -5,7 +5,7 @@
   justify-content: center;
   position: relative;
   gap: 12px;
-  width: 1140px;
+  max-width: 1140px;
   cursor: pointer;
   font-weight: 400;
   font-size: 13px;

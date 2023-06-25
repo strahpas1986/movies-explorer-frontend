@@ -64,6 +64,13 @@
   }
 }
 
+@media screen and (max-width: 737px) and (min-width: 621px) {
+  .movies-card-list {
+    padding-right: auto;
+    padding-left: auto;
+  }
+}
+
 @media screen and (max-width: 620px) {
   .movies-card-list {
     padding-top: 40px;

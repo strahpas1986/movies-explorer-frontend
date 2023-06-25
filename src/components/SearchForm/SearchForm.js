@@ -26,7 +26,6 @@ function SearchForm({ onFilterChange, isFilterOn }) {
         id="search-and-filter"
         action="#"
         name="search-and-filter"
-        noValidate
         onSubmit={handleSubmit}
       >
         <div className="search-form__form_search">

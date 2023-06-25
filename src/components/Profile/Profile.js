@@ -49,6 +49,7 @@ function Profile({ user }) {
               name="name"
               form="edit-profile"
               required
+              placeholder="Имя"
               minLength="2"
               maxLength="30"
               id="name-input"
@@ -67,6 +68,7 @@ function Profile({ user }) {
               name="email"
               form="edit-profile"
               required
+              placeholder="pochta@yandex.ru"
               id="email-input"
               disabled={isEditingBegun ? false : true}
               onChange={onChange}
