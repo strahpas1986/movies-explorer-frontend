@@ -12,7 +12,7 @@ export function register({ name, email, password }) {
 }
 
 // Функция авторизации
-export function autorize({ email, password }) {
+export function authorize({ email, password }) {
   return makeRequest(MAINAPI_URL, "/signin", "POST", true, {
     email,
     password,
@@ -30,10 +30,10 @@ export function getUserInfo() {
 }
 
 // Функция обновления информации о пользователе
-export function updateUserInfo({ email, name }) {
+export function updateUserInfo({ name, email }) {
   return makeRequest(MAINAPI_URL, "/users/me", "PATCH", true, {
-    email,
     name,
+    email,
   });
 }
 
