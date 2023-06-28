@@ -1,5 +1,8 @@
 // Импорт пакетов
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import useValidation from "../../hooks/useValidation";
+import { USER_NAME_REG_EXP } from "../../utils/constants";
 
 // Импорт стилей
 import "./Register.css";
@@ -8,22 +11,36 @@ import "./Register.css";
 import AuthScreen from "../AuthScreen/AuthScreen";
 
 // Компонент Register
-function Register() {
+function Register({
+  onRegister,
+  onLoading,
+  serverErrorText,
+  setServerErrorText,
+  loggedIn,
+}) {
 
   const { values, errors, isFormValid, onChange } = useValidation();
 
+  useEffect(() => {
+    setServerErrorText("");
+  }, [setServerErrorText]);
+
   function handleSubmit(e) {
     e.preventDefault();
+    onRegister(values);
   }
 
-  return (
+  return loggedIn ? (
+    <Navigate to="/" replace />
+  ) : (
     <main className="register">
       <AuthScreen
         title="Добро пожаловать!"
         name="register"
         onSubmit={handleSubmit}
         isFormValid={isFormValid}
-        buttonText="Зарегистрироваться"
+        buttonText={onLoading ? "Регистрация..." : "Зарегистрироваться"}
+        serverErrorText={serverErrorText}
       >
         <label className="form__input-wrapper">
           Имя
@@ -37,6 +54,8 @@ function Register() {
             required
             minLength="2"
             maxLength="30"
+            pattern={USER_NAME_REG_EXP}
+            disabled={onLoading ? true : false}
             id="name-input"
             onChange={onChange}
             value={values.name || ""}
@@ -59,6 +78,7 @@ function Register() {
             name="email"
             form="register"
             required
+            disabled={onLoading ? true : false}
             id="email-input"
             onChange={onChange}
             value={values.email || ""}
@@ -83,6 +103,7 @@ function Register() {
             required
             minLength="6"
             maxLength="30"
+            disabled={onLoading ? true : false}
             id="password-input"
             onChange={onChange}
             value={values.password || ""}

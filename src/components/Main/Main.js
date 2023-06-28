@@ -8,10 +8,10 @@ import Technology from "../Technology/Technology";
 import AboutMe from "../AboutMe/AboutMe";
 
 // Компонент Main
-function Main({ onAnchorClick, aboutRef }) {
+function Main({ aboutRef }) {
   return (
     <main className="main">
-      <Promo onAnchorClick={onAnchorClick} aboutRef={aboutRef} />
+      <Promo aboutRef={aboutRef} />
       <AboutProject aboutRef={aboutRef} />
       <Technology />
       <AboutMe />

@@ -1,7 +1,7 @@
 // Импорт пакетов
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import useNotification from "../../contexts/NotificationContext";
+import useNotification from "../../hooks/useNotification";
 
 // Импорт стилей
 import "./App.css";
@@ -35,13 +35,10 @@ import { MOVIESAPI_URL } from "../../utils/constants";
 // компонент App
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState("");
   const [currentUser, setCurrentUser] = useState({});
   const [isPreloader, setPreloaderClass] = useState(true);
   const [isSideMenuOpen, setSideMenuStatus] = useState(false);
-  const [isFilterOn, setFilter] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const [cards, setCards] = useState([]);
   const [savedCards, setSavedCards] = useState([]);
   const [serverErrorText, setServerErrorText] = useState("");
   const [isSearchError, setSearchError] = useState(false);
@@ -111,7 +108,7 @@ function App() {
         setLoggedIn(false);
         setCurrentUser({});
         setSavedCards([]);
-        setEmail("");
+        localStorage.clear();
         navigate("/", { replace: true });
       }
     } catch (err) {
@@ -120,19 +117,19 @@ function App() {
   }
 
   // функция сохранения токена ???
-  async function handleTokenCheck() {
+  const handleTokenCheck = useCallback(async () => {
     try {
-      const user = await MainApi.getUserInfo();
-      if (!user) {
-        throw new Error("Данные пользователя отсутствуют");
+      const userData = await MainApi.getUserInfo();
+      if (userData) {
+        setLoggedIn(true);
+        setCurrentUser(userData);
       }
-      setEmail(user.email);
-      setLoggedIn(true);
-      navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
+    } finally {
+      setPreloaderClass(false);
     }
-  }
+  }, []);
 
   // функция загрузки карточек фильмов
   async function handleMoviesCardAll() {
@@ -227,9 +224,9 @@ function App() {
   }
 
   // Функция фильтра
-  function handleFilterChange(evt) {
-    setFilter(evt);
-  }
+  // function handleFilterChange(evt) {
+  //   setFilter(evt);
+  // }
 
   // Функция лайка (при добавлении функционала JS на 4 этапе будет переделана)
   // function handleCardLike() {
@@ -237,12 +234,12 @@ function App() {
   // }
 
   // Функция эффекта скролла
-  function handleScrollEffect(targetRef) {
-    targetRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
+  // function handleScrollEffect(targetRef) {
+  //   targetRef.current.scrollIntoView({
+  //     behavior: "smooth",
+  //     block: "start",
+  //   });
+  // }
 
   // Временно
   // useEffect(() => {
@@ -257,25 +254,22 @@ function App() {
       ) : (
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
-          <Route
-            path="/"
-            element={<AppLayout onHamburgerClick={handleOpenSideMenu} />}
-          />
             <Route
-              index
+              path="/"
               element={
-                <Main
-                  onAnchorClick={handleScrollEffect}
-                  aboutRef={aboutOnClickRef}
+              <AppLayout
+                onHamburgerClick={handleOpenSideMenu}
+                loggedIn={loggedIn}
                 />
               }
             />
+            <Route index element={<Main aboutRef={aboutOnClickRef}/>} />
             <Route
               path="/movies"
               element={
                 <ProtectedRoute
                   element={Movies}
-                  cards={cards}
+                  savedCards={savedCards}
                   onSearch={handleMoviesCardAll}
                   isSearchError={isSearchError}
                   onCardSave={handleSaveMovie}
@@ -326,7 +320,7 @@ function App() {
               path="/signup"
               element={
                 <Register
-                  onRegistr={handleRegistration}
+                  onRegister={handleRegistration}
                   onLoading={isLoading}
                   serverErrorText={serverErrorText}
                   setServerErrorText={setServerErrorText}
@@ -334,13 +328,13 @@ function App() {
                 />
               }
             />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
         <HamburgerMenu
           isSideMenuOpen={isSideMenuOpen}
           onClose={handleCloseSideMenu}
         />
-          </CurrentUserContext.Provider>
+        </CurrentUserContext.Provider>
       )}
     </div>
   );

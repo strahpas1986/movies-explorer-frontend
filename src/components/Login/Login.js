@@ -1,4 +1,6 @@
 // Импорт пакетов
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import useValidation from "../../hooks/useValidation";
 
 // Импорт стилей
@@ -8,22 +10,36 @@ import "./Login.css";
 import AuthScreen from "../AuthScreen/AuthScreen";
 
 // Компонент Login
-function Login() {
+function Login({
+  onLogin,
+  onLoading,
+  serverErrorText,
+  setServerErrorText,
+  loggedIn,
+}) {
 
   const { values, errors, isFormValid, onChange } = useValidation();
 
+  useEffect(() => {
+    setServerErrorText("");
+  }, [setServerErrorText]);
+
   function handleSubmit(e) {
     e.preventDefault();
+    onLogin(values);
   }
 
-  return (
+  return loggedIn ? (
+    <Navigate to="/" replace />
+  ) : (
     <main className="login">
       <AuthScreen
         title="Рады видеть!"
         name="login"
         onSubmit={handleSubmit}
         isFormValid={isFormValid}
-        buttonText="Войти"
+        buttonText={onLoading ? "Вход..." : "Войти"}
+        serverErrorText={serverErrorText}
       >
         <label className="form__input-wrapper">
           E-mail
@@ -37,6 +53,7 @@ function Login() {
             required
             id="email-input"
             onChange={onChange}
+            disabled={onLoading ? true : false}
             value={values.email || ""}
           />
           <span
@@ -59,6 +76,7 @@ function Login() {
             required
             minLength="6"
             maxLength="30"
+            disabled={onLoading ? true : false}
             id="password-input"
             onChange={onChange}
             value={values.password || ""}

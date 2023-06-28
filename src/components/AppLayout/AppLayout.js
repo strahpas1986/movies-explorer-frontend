@@ -6,13 +6,13 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 // Компонент AppLayout
-function AppLayout({ onHamburgerClick }) {
+function AppLayout({ onHamburgerClick, loggedIn }) {
 
   const location = useLocation();
 
   return (
     <>
-      <Header onHamburgerClick={onHamburgerClick} />
+      <Header onHamburgerClick={onHamburgerClick} loggedIn={loggedIn} />
       <Outlet />
       {location.pathname !== "/profile" && <Footer />}
     </>
