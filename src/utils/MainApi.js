@@ -1,4 +1,4 @@
-import { makeRequest } from "./config";
+import { makeRequest } from "./utils";
 
 import { MAINAPI_URL } from "./constants";
 

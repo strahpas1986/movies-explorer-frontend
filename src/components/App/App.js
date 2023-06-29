@@ -108,7 +108,7 @@ function App() {
         setLoggedIn(false);
         setCurrentUser({});
         setSavedCards([]);
-        localStorage.clear();
+        // localStorage.clear();
         navigate("/", { replace: true });
       }
     } catch (err) {
@@ -119,17 +119,25 @@ function App() {
   // функция сохранения токена ???
   const handleTokenCheck = useCallback(async () => {
     try {
+      // const userData = await MainApi.getUserInfo();
+      // if (userData) {
+      //   setLoggedIn(true);
+      //   setCurrentUser(userData);
+      // }
       const userData = await MainApi.getUserInfo();
-      if (userData) {
-        setLoggedIn(true);
-        setCurrentUser(userData);
+      if (!userData) {
+        throw new Error("Данные пользователя отсутствуют");
       }
+      // setEmail(user.email);
+      setLoggedIn(true);
+      setCurrentUser(userData);
+      navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
     } finally {
       setPreloaderClass(false);
     }
-  }, []);
+  }, [navigate]);
 
   // функция загрузки карточек фильмов
   async function handleMoviesCardAll() {
@@ -234,12 +242,12 @@ function App() {
   // }
 
   // Функция эффекта скролла
-  // function handleScrollEffect(targetRef) {
-  //   targetRef.current.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "start",
-  //   });
-  // }
+  function handleScrollEffect(targetRef) {
+    targetRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
 
   // Временно
   // useEffect(() => {
@@ -257,54 +265,63 @@ function App() {
             <Route
               path="/"
               element={
-              <AppLayout
-                onHamburgerClick={handleOpenSideMenu}
-                loggedIn={loggedIn}
-                />
-              }
-            />
-            <Route index element={<Main aboutRef={aboutOnClickRef}/>} />
-            <Route
-              path="/movies"
-              element={
-                <ProtectedRoute
-                  element={Movies}
-                  savedCards={savedCards}
-                  onSearch={handleMoviesCardAll}
-                  isSearchError={isSearchError}
-                  onCardSave={handleSaveMovie}
-                  onCardDelete={handleDeleteMovie}
-                  isLoading={isLoading}
+                <AppLayout
+                  onHamburgerClick={handleOpenSideMenu}
                   loggedIn={loggedIn}
                 />
               }
-            />
-            <Route
-              path="/saved-movies"
-              element={
-                <ProtectedRoute
-                  element={SavedMovies}
-                  cards={savedCards}
-                  onCardDelete={handleDeleteMovie}
-                  loggedIn={loggedIn}
+            >
+              <Route
+                index
+                element={
+                  <Main
+                  onAnchorClick={handleScrollEffect}
+                  aboutRef={aboutOnClickRef}
                 />
-              }
-            />
+                }
+              />
+              <Route
+                path="/movies"
+                element={
+                  <ProtectedRoute
+                    element={Movies}
+                    savedCards={savedCards}
+                    onSearch={handleMoviesCardAll}
+                    isSearchError={isSearchError}
+                    onCardSave={handleSaveMovie}
+                    onCardDelete={handleDeleteMovie}
+                    isLoading={isLoading}
+                    loggedIn={loggedIn}
+                  />
+                }
+              />
+              <Route
+                path="/saved-movies"
+                element={
+                  <ProtectedRoute
+                    element={SavedMovies}
+                    cards={savedCards}
+                    onCardDelete={handleDeleteMovie}
+                    loggedIn={loggedIn}
+                  />
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute
+                    element={Profile}
+                    onUpdateUser={handleUpdateUser}
+                    onLogout={handleLogout}
+                    onLoading={isLoading}
+                    serverErrorText={serverErrorText}
+                    setServerErrorText={setServerErrorText}
+                    loggedIn={loggedIn}
+                  />
+                }
+              />
+            </Route>
             <Route
-              path="/profile"
-              element={
-                <ProtectedRoute
-                  element={Profile}
-                  onUpdateUser={handleUpdateUser}
-                  onLogout={handleLogout}
-                  onLoading={isLoading}
-                  serverErrorText={serverErrorText}
-                  setServerErrorText={setServerErrorText}
-                  loggedIn={loggedIn}
-                />
-              }
-            />
-          <Route
               path="/signin"
               element={
                 <Login
@@ -316,7 +333,7 @@ function App() {
                 />
               }
             />
-          <Route
+            <Route
               path="/signup"
               element={
                 <Register
@@ -328,12 +345,12 @@ function App() {
                 />
               }
             />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-        <HamburgerMenu
-          isSideMenuOpen={isSideMenuOpen}
-          onClose={handleCloseSideMenu}
-        />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+          <HamburgerMenu
+            isSideMenuOpen={isSideMenuOpen}
+            onClose={handleCloseSideMenu}
+          />
         </CurrentUserContext.Provider>
       )}
     </div>

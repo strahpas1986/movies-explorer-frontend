@@ -31,7 +31,7 @@ export function convertDuration(duration) {
 }
 
 // MOVIE FILTERING HANDLER
-export function handleMovieFiltering(movies, isFilterOn, isSavedMovies) {
+export function handleMovieFilter(movies, isFilterOn, isSavedMovies) {
   if (!isSavedMovies) {
     localStorage.setItem("isMoviesFilterOn", isFilterOn);
   } else {
