@@ -20,15 +20,15 @@ export function makeRequest(url, endpoint, method, credentials, body) {
 }
 
 // CONVERT DURATION
-export function convertDuration(duration) {
-  const minutes = duration % 60;
-  const hours = (duration - minutes) / 60;
-  if (hours < 1) {
-    return `${minutes}м`;
-  } else {
-    return `${hours}ч ${minutes}м`;
-  }
-}
+// export function convertDuration(duration) {
+//   const minutes = duration % 60;
+//   const hours = (duration - minutes) / 60;
+//   if (hours < 1) {
+//     return `${minutes}м`;
+//   } else {
+//     return `${hours}ч ${minutes}м`;
+//   }
+// }
 
 // MOVIE FILTERING HANDLER
 export function handleMovieFilter(movies, isFilterOn, isSavedMovies) {

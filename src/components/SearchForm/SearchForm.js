@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 // Импорт пакетов
 import useValidation from "../../hooks/useValidation";
 
@@ -8,12 +11,43 @@ import "./SearchForm.css";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 // Компонент SearchForm
-function SearchForm({ onFilterChange, isFilterOn }) {
+function SearchForm({ onSearch, onFilterChange, isFilterOn, isSearching }) {
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [queryError, setQueryError] = useState("");
+  const location = useLocation();
 
   const { isFormValid } = useValidation();
 
+  useEffect(() => {
+    if (
+      location.pathname === "/movies" &&
+      localStorage.getItem("moviesSearchQuery")
+    ) {
+      const savedSearchQuery = localStorage.getItem("moviesSearchQuery");
+      setSearchQuery(savedSearchQuery);
+    } else if (
+      location.pathname === "/saved-movies" &&
+      localStorage.getItem("savedMoviesSearchQuery")
+    ) {
+      const savedSearchQuery = localStorage.getItem("savedMoviesSearchQuery");
+      setSearchQuery(savedSearchQuery);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    setQueryError("");
+  }, [searchQuery]);
+
   function handleSubmit(e) {
     e.preventDefault();
+    if (location.pathname === "/movies") {
+      searchQuery
+        ? onSearch(searchQuery)
+        : setQueryError("Нужно ввести ключевое слово");
+    } else {
+      onSearch(searchQuery);
+    }
   }
 
   return (
@@ -41,6 +75,9 @@ function SearchForm({ onFilterChange, isFilterOn }) {
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
+            disabled={isSearching ? true : false}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery || ""}
           />
           <button
             className="search-form__btn-submit hover-button"
@@ -58,9 +95,11 @@ function SearchForm({ onFilterChange, isFilterOn }) {
         <FilterCheckbox
           onFilterChange={onFilterChange}
           isFilterOn={isFilterOn}
+          isSearching={isSearching}
         />
 
       </form>
+      <span className="search-form__error">{queryError}</span>
     </section>
   );
 }

@@ -16,7 +16,6 @@ function MoviesCardList({
   savedCards,
   cardsParams,
   isCardsNotFound,
-  isSearchError,
   onCardSave,
   onCardDelete,
   isLoading,
@@ -60,12 +59,7 @@ function MoviesCardList({
         {isCardsNotFound && (
           <p className="movies-card-list__info">Ничего не&nbsp;найдено</p>
         )}
-        {cards.length !== 0 ? (
-          <p className="movies-card-list__not-found">
-            Поиск не&nbsp;дал результатов. Попробуйте изменить условия поиска
-            и&nbsp;попробуйте снова.
-          </p>
-        ) : (
+        {cards.length !== 0 && !isCardsNotFound && (
           <>
             <ul
               className={`movies-card-list__list ${

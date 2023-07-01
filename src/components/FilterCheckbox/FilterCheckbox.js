@@ -2,7 +2,7 @@
 import "./FilterCheckbox.css";
 
 // Компонент FilterCheckbox
-function FilterCheckbox({ onFilterChange, isFilterOn }) {
+function FilterCheckbox({ onFilterChange, isFilterOn, isSearching }) {
   return (
     <label className="filter-checkbox">
       <input
@@ -10,6 +10,7 @@ function FilterCheckbox({ onFilterChange, isFilterOn }) {
         form="search-and-filter"
         name="toggle"
         type="checkbox"
+        disabled={isSearching ? true : false}
         value={isFilterOn}
         onChange={(evt) => onFilterChange(evt.target.checked)}
       />

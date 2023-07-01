@@ -20,11 +20,6 @@ import Preloader from "../Preloader/Preloader";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-// Временная мера: импорт json
-// import moviesCards from "../../temp/data.json";
-// import moviesSavedCards from "../../temp/savedData.json";
-// import userData from "../../temp/userData.json";
-
 // импорт API
 import * as MainApi from "../../utils/MainApi";
 import * as MoviesApi from "../../utils/MoviesApi";
@@ -108,7 +103,6 @@ function App() {
         setLoggedIn(false);
         setCurrentUser({});
         setSavedCards([]);
-        // localStorage.clear();
         navigate("/", { replace: true });
       }
     } catch (err) {
@@ -116,14 +110,9 @@ function App() {
     }
   }
 
-  // функция сохранения токена ???
+  // функция сохранения токена
   const handleTokenCheck = useCallback(async () => {
     try {
-      // const userData = await MainApi.getUserInfo();
-      // if (userData) {
-      //   setLoggedIn(true);
-      //   setCurrentUser(userData);
-      // }
       const userData = await MainApi.getUserInfo();
       if (!userData) {
         throw new Error("Данные пользователя отсутствуют");
@@ -231,16 +220,6 @@ function App() {
     setSideMenuStatus(false);
   }
 
-  // Функция фильтра
-  // function handleFilterChange(evt) {
-  //   setFilter(evt);
-  // }
-
-  // Функция лайка (при добавлении функционала JS на 4 этапе будет переделана)
-  // function handleCardLike() {
-  //   setLike(!isLiked);
-  // }
-
   // Функция эффекта скролла
   function handleScrollEffect(targetRef) {
     targetRef.current.scrollIntoView({
@@ -248,12 +227,6 @@ function App() {
       block: "start",
     });
   }
-
-  // Временно
-  // useEffect(() => {
-  //   setCards(moviesCards);
-  //   setSavedCards(moviesSavedCards);
-  // }, []);
 
   return (
     <div className="app__content">

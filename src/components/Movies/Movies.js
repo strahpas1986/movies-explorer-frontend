@@ -16,7 +16,6 @@ import { CARDS_PARAM } from "../../utils/constants";
 function Movies({
   savedCards,
   onSearch,
-  isSearchError,
   onCardSave,
   onCardDelete,
   isLoading,
@@ -138,7 +137,6 @@ function Movies({
         savedCards={savedCards}
         cardsParams={cardsParams}
         isCardsNotFound={isCardsNotFound}
-        isSearchError={isSearchError}
         onCardSave={onCardSave}
         onCardDelete={onCardDelete}
         isLoading={isLoading}
