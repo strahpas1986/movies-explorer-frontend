@@ -1,0 +1,131 @@
+.search-form {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 70px 10px;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
+}
+
+.search-form__form {
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 28px;
+  padding-bottom: 83px;
+  border-bottom: 1px solid rgba(170, 170, 170, 0.2);
+}
+
+.search-form__form_search {
+  display: flex;
+  width: 100%;
+  column-gap: 10px;
+}
+
+.search-form__search {
+  width: 100%;
+  height: 50px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #F4F4F4;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #000000;
+}
+
+.search-form__search::placeholder {
+  color: #8b8b8b;
+}
+
+.search-form__search[type="search"]::-webkit-search-cancel-button {
+  display: none;
+  appearance: none;
+}
+
+.search-form__btn-submit {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  align-self: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #3456F3;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.64;
+  color: #FFFFFF;
+  transition: opacity 0.5s;
+}
+
+.search-form__btn-submit_img-line {
+  position: absolute;
+  top: 7px;
+  right: 37px;
+  bottom: 7px;
+  left: 7px;
+}
+
+.search-form__btn-submit_img-arrow {
+  position: absolute;
+  top: 16px;
+  right: 19px;
+  bottom: 16px;
+  left: 16px;
+}
+
+@media screen and (max-width: 990px) {
+  .search-form {
+    padding-top: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  .search-form__form {
+    flex-direction: column;
+    gap: 39px;
+    padding-bottom: 56px;
+  }
+
+  .search-form__search {
+    padding-left: 18px;
+  }
+
+  .search-form__btn-submit {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .search-form {
+    padding-top: 80px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .search-form__form {
+    gap: 46px;
+    padding-bottom: 44px;
+    border-bottom: none;
+  }
+
+  .search-form__form::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    bottom: 0;
+    height: 1px;
+    width: calc(100% - 8px);
+    border-bottom: 1px solid rgba(170, 170, 170, 0.2);
+  }
+
+  .search-form__search {
+    height: 44px;
+    padding-left: 16px;
+    font-size: 11px;
+    line-height: 1.63;
+  }
+}
