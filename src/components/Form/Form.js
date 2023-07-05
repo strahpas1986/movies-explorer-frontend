@@ -9,10 +9,20 @@ function Form({
   name,
   onSubmit,
   isFormValid,
+  isCurrentUser,
   buttonText,
   isEditingBegun,
   ...props
 }) {
+
+  function handleDisable() {
+    if (name === "edit-profile") {
+      return isFormValid && !isCurrentUser ? false : true;
+    } else {
+      return isFormValid ? false : true;
+    }
+  }
+
   return (
     <form
       action="#"
@@ -32,7 +42,7 @@ function Form({
             ? "form__btn-submit_hidden"
             : ""
         } hover-button`}
-        disabled={isFormValid ? false : true}
+        disabled={handleDisable()}
       >
         {buttonText}
       </button>

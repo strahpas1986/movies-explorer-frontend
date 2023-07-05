@@ -53,7 +53,7 @@ function MoviesCard({ card, isSaved, onCardSave, onCardDelete }) {
           <div className="movies-card__btn-action">
             <button
               className={`movies-card__btn-like-img ${isSaved ? "movies-card__btn-like-img_active" : ""}`}
-              type="button"
+              type="submit"
               onClick={isSaved ? handleDeleteClick : handleSaveClick}
             ></button>
           </div>
@@ -63,7 +63,8 @@ function MoviesCard({ card, isSaved, onCardSave, onCardDelete }) {
             type="button"
             aria-label="Удалить фильм из сохранённых"
             onClick={handleDeleteClick}
-          ></button>
+          >
+          </button>
         )}
       </div>
       <p className="movies-card__duration">

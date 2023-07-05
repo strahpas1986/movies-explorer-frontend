@@ -36,7 +36,7 @@ function App() {
   const [isLoading, setLoading] = useState(false);
   const [savedCards, setSavedCards] = useState([]);
   const [serverErrorText, setServerErrorText] = useState("");
-  const [isSearchError, setSearchError] = useState(false);
+  // const [isSearchError, setSearchError] = useState(false);
   const aboutOnClickRef = useRef(null);
   const navigate = useNavigate();
   const dispatch = useNotification();
@@ -114,31 +114,28 @@ function App() {
   const handleTokenCheck = useCallback(async () => {
     try {
       const userData = await MainApi.getUserInfo();
-      if (!userData) {
-        throw new Error("Данные пользователя отсутствуют");
+      if (userData) {
+        setLoggedIn(true);
+        setCurrentUser(userData);
       }
-      // setEmail(user.email);
-      setLoggedIn(true);
-      setCurrentUser(userData);
-      navigate("/", { replace: true });
     } catch (err) {
       console.error(err);
     } finally {
       setPreloaderClass(false);
     }
-  }, [navigate]);
+  }, []);
 
   // функция загрузки карточек фильмов
   async function handleMoviesCardAll() {
     setLoading(true);
-    setSearchError(false);
+    // setSearchError(false);
     try {
       const moviesData = await MoviesApi.getCards();
       if (moviesData) {
         return moviesData;
       }
     } catch (err) {
-      setSearchError(true);
+      // setSearchError(true);
       console.error(err);
     } finally {
       setLoading(false);
@@ -260,7 +257,6 @@ function App() {
                     element={Movies}
                     savedCards={savedCards}
                     onSearch={handleMoviesCardAll}
-                    isSearchError={isSearchError}
                     onCardSave={handleSaveMovie}
                     onCardDelete={handleDeleteMovie}
                     isLoading={isLoading}
@@ -273,7 +269,7 @@ function App() {
                 element={
                   <ProtectedRoute
                     element={SavedMovies}
-                    cards={savedCards}
+                    savedCards={savedCards}
                     onCardDelete={handleDeleteMovie}
                     loggedIn={loggedIn}
                   />
@@ -287,8 +283,6 @@ function App() {
                     onUpdateUser={handleUpdateUser}
                     onLogout={handleLogout}
                     onLoading={isLoading}
-                    serverErrorText={serverErrorText}
-                    setServerErrorText={setServerErrorText}
                     loggedIn={loggedIn}
                   />
                 }

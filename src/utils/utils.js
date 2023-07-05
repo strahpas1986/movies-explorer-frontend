@@ -1,7 +1,7 @@
-// IMPORT VARIABLES
+// импорт переменных
 import { SHORT_MOVIE } from "./constants";
 
-// MAKE REQUEST TO THE SERVER
+// функция обращения к серверу
 export function makeRequest(url, endpoint, method, credentials, body) {
   const headers = { "Content-Type": "application/json" };
   const config = { method, headers };
@@ -19,18 +19,7 @@ export function makeRequest(url, endpoint, method, credentials, body) {
   });
 }
 
-// CONVERT DURATION
-// export function convertDuration(duration) {
-//   const minutes = duration % 60;
-//   const hours = (duration - minutes) / 60;
-//   if (hours < 1) {
-//     return `${minutes}м`;
-//   } else {
-//     return `${hours}ч ${minutes}м`;
-//   }
-// }
-
-// MOVIE FILTERING HANDLER
+// функция фильтра фильмов
 export function handleMovieFilter(movies, isFilterOn, isSavedMovies) {
   if (!isSavedMovies) {
     localStorage.setItem("isMoviesFilterOn", isFilterOn);
@@ -45,7 +34,7 @@ export function handleMovieFilter(movies, isFilterOn, isSavedMovies) {
   }
 }
 
-// MOVIE SEARCH HANDLER
+// функция поиска фильмов
 export function handleMovieSearch(movies, searchQuery, isSavedMovies) {
   const normalizeSearchQuery = searchQuery.toLowerCase().trim();
   const result = movies.filter((movie) => {
@@ -65,22 +54,16 @@ export function handleMovieSearch(movies, searchQuery, isSavedMovies) {
   return result;
 }
 
-// HANDLER SAVED STATUS
+// функция сохранения статуса
 export function handleSavedStatus(savedCards, movieCard) {
   return savedCards.find((card) => {
     return card.movieId === (movieCard.id || movieCard.movieId);
   });
 }
 
-// GENERATE A UNIQUE KEY
+// функция генерации уникального ключа
 export function generateKey(prefix) {
   return `${prefix}-${new Date().getTime()}`;
 }
 
-// HANDLER SMOOTH SCROLL EFFECT
-export function handleScrollEffect(targetRef) {
-  targetRef.current.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}
+

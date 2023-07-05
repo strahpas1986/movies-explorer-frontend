@@ -1,5 +1,5 @@
 // Импорт пакетов
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useValidation from "../../hooks/useValidation";
 
 // Импорт стилей
@@ -8,13 +8,26 @@ import "./Profile.css";
 // Импорт компонентов
 import AuthTitle from "../AuthTitle/AuthTitle";
 import Form from "../Form/Form";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { USER_NAME_REG_EXP } from "../../utils/constants";
 
 // Компонент Profile
-function Profile({ user }) {
+function Profile({ onUpdateUser, onLogout, onLoading }) {
 
+  const currentUser = useContext(CurrentUserContext);
+  const [isCurrentUser, setCurrentUserD] = useState(true);
   const [isEditingBegun, setEditingStatus] = useState(false);
-  const { values, errors, isFormValid, onChange, resetValidation } =
-    useValidation();
+  const { values, errors, isFormValid, onChange, resetValidation } = useValidation();
+
+  useEffect(() => {
+    currentUser.name !== values.name || currentUser.email !== values.email
+      ? setCurrentUserD(false)
+      : setCurrentUserD(true);
+  }, [currentUser, values]);
+
+  useEffect(() => {
+    resetValidation(false, currentUser);
+  }, [resetValidation, currentUser]);
 
   function handleEditClick() {
     setEditingStatus(!isEditingBegun);
@@ -22,21 +35,22 @@ function Profile({ user }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    onUpdateUser(values);
   }
-
-  useEffect(() => {
-    resetValidation(true, user);
-  }, [resetValidation, user]);
 
   return (
     <main className="profile">
       <section className="profile__wrapper">
-        <AuthTitle title={`Привет, ${user.name}!`} place="edit-profile" />
+        <AuthTitle
+          title={`Привет, ${currentUser.name || ""}!`}
+          place="edit-profile"
+        />
         <Form
           name="edit-profile"
           onSubmit={handleSubmit}
           isFormValid={isFormValid}
-          buttonText="Сохранить"
+          isCurrentUser={isCurrentUser}
+          buttonText={onLoading ? "Сохранение..." : "Сохранить"}
           isEditingBegun={isEditingBegun}
         >
           <label className="form__input-wrapper form__input-wrapper_type_edit-profile">
@@ -51,8 +65,9 @@ function Profile({ user }) {
               required
               minLength="2"
               maxLength="30"
+              pattern={USER_NAME_REG_EXP}
               id="name-input"
-              disabled={isEditingBegun ? false : true}
+              disabled={isEditingBegun && !onLoading ? false : true}
               onChange={onChange}
               value={values.name || ""}
             />
@@ -68,7 +83,7 @@ function Profile({ user }) {
               form="edit-profile"
               required
               id="email-input"
-              disabled={isEditingBegun ? false : true}
+              disabled={isEditingBegun && !onLoading ? false : true}
               onChange={onChange}
               value={values.email || ""}
             />
@@ -127,6 +142,7 @@ function Profile({ user }) {
           <button
             className="profile__btn-action profile__btn-action_type_exit hover-link"
             type="button"
+            onClick={onLogout}
           >
             Выйти из аккаунта
           </button>
