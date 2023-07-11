@@ -51,7 +51,8 @@
 ### Ссылки
 
 - [Ссылка на репозиторий проекта](https://github.com/strahpas1986/movies-explorer-frontend)
-
+- [Ссылка на PullRequest](https://github.com/strahpas1986/movies-explorer-frontend/tree/level-3)
+- [Сыылка на сайт](https://movies-strahpas.nomoredomains.rocks)
 ## Ход выполнения проекта
 
 ### Используемые технологии
