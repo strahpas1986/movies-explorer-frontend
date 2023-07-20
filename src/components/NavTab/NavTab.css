@@ -1,0 +1,15 @@
+.promo__btn {
+  margin-top: 146px;
+  width: 129px;
+  height: 36px;
+  color: #000;
+  background-color: #DDDEE3;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.33;
+  border-radius: 3px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
