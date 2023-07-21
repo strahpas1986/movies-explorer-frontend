@@ -1,11 +1,9 @@
-import './NavTab.css';
+// Импорт стилей
+import "./NavTab.css";
 
-function NavTab() {
-  return (
-    <button className='promo__btn'>
-      Узнать больше
-    </button>
-  )
+// Компонент NavTab
+function NavTab({ title }) {
+  return <h2 className="section-title">{title}</h2>;
 }
 
 export default NavTab;

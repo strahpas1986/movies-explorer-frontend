@@ -1,10 +1,8 @@
 import './Promo.css';
 
-import NavTab from '../NavTab/NavTab';
-
 import image_bg from '../../images/image_bg.svg';
 
-function Promo() {
+function Promo({ onClick, aboutRef }) {
   return (
     <section className='promo'>
       <div className='promo__wrapper'>
@@ -14,7 +12,13 @@ function Promo() {
         <p className='promo__subtitle'>
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
-        <NavTab />
+        <button
+          className="promo__btn"
+          type="button"
+          onClick={() => onClick(aboutRef)}
+        >
+          Узнать больше
+        </button>
       </div>
       <img className='promo__img' src={image_bg} alt="Изображение земного шара" />
     </section>
