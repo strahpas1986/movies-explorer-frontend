@@ -3,6 +3,7 @@ import FormTitle from "../FormTitle/FormTitle";
 import Form from "../Form/Form";
 
 import './FormCap.css';
+import logo from '../../images/logo.svg';
 
 function FormCap({
   title,
@@ -14,6 +15,7 @@ function FormCap({
 }) {
   return (
     <section className="form-cap">
+      <img src={logo} alt="Логотип дипломного проекта" className="header__image"/>
       <FormTitle title={title}/>
       <Form
         name={name}
