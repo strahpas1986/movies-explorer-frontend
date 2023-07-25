@@ -4,7 +4,7 @@ import NavTab from '../NavTab/NavTab';
 
 import author from "../../images/author-foto.jpg";
 
-function AboutMe() {
+function AboutMe({ ClickRef }) {
   return (
     <section className='about-me'>
       <NavTab title="Студент" />

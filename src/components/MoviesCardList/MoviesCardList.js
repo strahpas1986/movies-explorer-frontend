@@ -68,9 +68,9 @@ function MoviesCardList({
                 <MoviesCard
                   card={card}
                   key={card.id || card._id}
-                  isSaved={handleStatusSave(savedCards, card)}
-                  onCardSave={onCardSave}
-                  onCardDelete={onCardDelete}
+                  isLiked={handleStatusSave(savedCards, card)}
+                  onLikeCard={onCardSave}
+                  onDislikeCard={onCardDelete}
                 />
               ))}
             </ul>

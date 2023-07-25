@@ -1,8 +1,10 @@
 import './Promo.css';
 
+// import { handleScrollEffect } from '../../utils/utils';
+
 import image_bg from '../../images/image_bg.svg';
 
-function Promo({ onClick, aboutRef }) {
+function Promo() {
   return (
     <section className='promo'>
       <div className='promo__wrapper'>
@@ -12,12 +14,10 @@ function Promo({ onClick, aboutRef }) {
         <p className='promo__subtitle'>
           Листайте ниже, чтобы узнать больше про этот проект и его создателя.
         </p>
-        <button
-          className="promo__btn"
-          type="button"
-          onClick={() => onClick(aboutRef)}
-        >
-          Узнать больше
+        <button className="promo__btn" type="button">
+          <a href='#about-project' className='promo__btn_link'>
+            Узнать больше
+          </a>
         </button>
       </div>
       <img className='promo__img' src={image_bg} alt="Изображение земного шара" />

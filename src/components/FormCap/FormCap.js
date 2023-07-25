@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import FormTitle from "../FormTitle/FormTitle";
 import Form from "../Form/Form";
+import Logo from "../Logo/Logo";
 
 import './FormCap.css';
-import logo from '../../images/logo.svg';
 
 function FormCap({
   title,
@@ -15,7 +15,7 @@ function FormCap({
 }) {
   return (
     <section className="form-cap">
-      <img src={logo} alt="Логотип дипломного проекта" className="header__image"/>
+      <Logo place='auth'/>
       <FormTitle title={title}/>
       <Form
         name={name}
@@ -41,7 +41,7 @@ function FormCap({
         </p>
       )}
     </section>
-  )
+  );
 }
 
 export default FormCap;

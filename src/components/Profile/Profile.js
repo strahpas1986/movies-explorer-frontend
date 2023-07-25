@@ -3,12 +3,13 @@ import useValidation from "../../utils/useValidation";
 
 import "./Profile.css";
 
-import FormCap from "../FormCap/FormCap";
+import Header from "../Header/Header";
 import Form from "../Form/Form";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { NAME_REG_EXP } from "../../utils/constants";
+import FormTitle from "../FormTitle/FormTitle";
 
-function Profile({ onUpdateUser, onLogout, onLoading }) {
+function Profile({ onUpdateUser, onLogout, onLoading, onHamburgerClick }) {
 
   const currentUser = useContext(CurrentUserContext);
   const [isCurrentUser, setCurrentUserD] = useState(true);
@@ -36,8 +37,9 @@ function Profile({ onUpdateUser, onLogout, onLoading }) {
 
   return (
     <main className="profile">
+      <Header onHamburgerClick={onHamburgerClick}/>
       <section className="profile__wrapper">
-        <FormCap
+        <FormTitle
           title={`Привет, ${currentUser.name || ""}!`}
           place="edit-profile"
         />

@@ -78,3 +78,61 @@
   line-height: normal;
   letter-spacing: -0.56px;
 }
+
+@media screen and (max-width: 990px) {
+  .techs {
+    padding: 90px 50px;
+  }
+
+  .techs__title {
+    margin-top: 80px;
+  }
+
+  .techs__text {
+    margin-top: 22px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .techs__list {
+    grid-template-columns: repeat(auto-fit, 84px);
+    margin-top: 83px;
+  }
+
+  .techs__list-item {
+    height: 57px;
+  }
+
+  .techs__list-item-text {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .techs {
+    padding: 70px 18px;
+  }
+
+  .techs__title {
+    margin-top: 60px;
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .techs__text {
+    margin-top: 24px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .techs__list {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .techs__list {
+    max-width: 178px;
+  }
+}

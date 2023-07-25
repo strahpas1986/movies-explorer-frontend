@@ -1,18 +1,14 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 import './App.css';
 
-import AppLayout from "../AppLayout/AppLayout";
-// import Header from '../Header/Header';
-import Main from '../Main/Main';
-// import Footer from '../Footer/Footer';
+import AppLayout from '../AppLayout/AppLayout';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from "../Profile/Profile";
 import Hamburger from '../Hamburger/Hamburger';
 import NotFound from "../NotFound/NotFound";
-import Preloader from "../Preloader/Preloader";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -27,21 +23,13 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [isPreloader, setPreloaderClass] = useState(true);
   const [isSideMenuOpen, setSideMenuStatus] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [savedCards, setSavedCards] = useState([]);
   const [serverErrorText, setServerErrorText] = useState("");
-  const ClickRef = useRef(null);
   const navigate = useNavigate();
 
-  function handleScrollEffect(targetRef) {
-    targetRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-
+  // функция обновления данных пользователя
   async function handleUpdateUser({ name, email }) {
     setLoading(true);
     try {
@@ -57,6 +45,7 @@ function App() {
     }
   }
 
+  // функция авторизации пользователя
   async function handleAuthorize({ email, password }) {
     setLoading(true);
     try {
@@ -73,6 +62,7 @@ function App() {
     }
   }
 
+  // функция регистрации пользователя
   async function handleRegistration({ name, email, password }) {
     setLoading(true);
     try {
@@ -89,6 +79,7 @@ function App() {
     }
   }
 
+  // функция выхода из аккаунта
   async function handleLogout() {
     try {
       const data = await MainApi.logout();
@@ -103,6 +94,7 @@ function App() {
     }
   }
 
+  // функция получения токена
   const cbTokenCheck = useCallback(async () => {
     try {
       const userData = await MainApi.getUserInfo();
@@ -112,12 +104,11 @@ function App() {
       }
     } catch (err) {
       console.error(err);
-    } finally {
-      setPreloaderClass(false);
     }
   }, []);
 
-  async function handleMoviesCardAll() {
+  // функция сохранения всех карточек
+  async function handleSavedAllMoviesCard() {
     setLoading(true);
     try {
       const moviesData = await MoviesApi.getCards();
@@ -131,7 +122,8 @@ function App() {
     }
   }
 
-  const handleSavedMoviesCards = useCallback(async () => {
+  // функция лайка в Сохраненые фильмы
+  const handleLikeMovies = useCallback(async () => {
     try {
       const moviesData = await MainApi.getCardsByOwner();
       if (moviesData) {
@@ -142,6 +134,7 @@ function App() {
     }
   }, []);
 
+  // функция рендеринга карточек на странице
   async function handleSaveMovie(movie) {
     try {
       const movieData = await MainApi.createMovieCard({
@@ -165,7 +158,8 @@ function App() {
     }
   }
 
-  async function handleDeleteMovie(movie) {
+  // функция удаления карточки из Сохраненные фильмы
+  async function handleDeleteMovieBySaved(movie) {
     const savedMovie = savedCards.find(
       (card) => card.movieId === movie.id || card.movieId === movie.movieId
     );
@@ -187,81 +181,68 @@ function App() {
 
   useEffect(() => {
     if (loggedIn) {
-      handleSavedMoviesCards();
+      handleLikeMovies();
     }
-  }, [loggedIn, handleSavedMoviesCards]);
+  }, [loggedIn, handleLikeMovies]);
 
-  function handleOpenSideMenu() {
+  // функция открытия и закрытия гамбургера
+  function handleOpenAndCloseSideMenu() {
     setSideMenuStatus(!isSideMenuOpen);
-  }
-
-  function handleCloseSideMenu() {
-    setSideMenuStatus(false);
   }
 
   return (
     <div className="app__content">
-      {isPreloader ? (
-          <Preloader />
-        ) : (
-          <CurrentUserContext.Provider value={currentUser}>
+      <CurrentUserContext.Provider value={currentUser}>
             <Routes>
               <Route
                 path="/"
                 element={
                   <AppLayout
-                    onHamburgerClick={handleOpenSideMenu}
+                    onHamburgerClick={handleOpenAndCloseSideMenu}
                     loggedIn={loggedIn}
                   />
                 }
-              >
-                <Route
-                  index
-                  element={
-                    <Main
-                      onClick={handleScrollEffect}
-                      aboutRef={ClickRef}
-                    />
-                  }
-                />
-                <Route
-                  path="/movies"
-                  element={
-                    <ProtectedRoute
-                      element={Movies}
-                      savedCards={savedCards}
-                      onSearch={handleMoviesCardAll}
-                      onCardSave={handleSaveMovie}
-                      onCardDelete={handleDeleteMovie}
-                      isLoading={isLoading}
-                      loggedIn={loggedIn}
-                    />
-                  }
-                />
-                <Route
-                  path="/saved-movies"
-                  element={
-                    <ProtectedRoute
-                      element={SavedMovies}
-                      savedCards={savedCards}
-                      onCardDelete={handleDeleteMovie}
-                      loggedIn={loggedIn}
-                    />
-                  }
-                />
-                <Route
-                  path="/profile"
-                  element={
-                    <ProtectedRoute
-                      element={Profile}
-                      onUpdateUser={handleUpdateUser}
-                      onLogout={handleLogout}
-                      onLoading={isLoading}
-                      loggedIn={loggedIn}
-                    />
-                  }
-                />
-              </Route>
+              />
+              <Route
+                path="/movies"
+                element={
+                  <ProtectedRoute
+                    element={Movies}
+                    savedCards={savedCards}
+                    onSearch={handleSavedAllMoviesCard}
+                    onCardSave={handleSaveMovie}
+                    onCardDelete={handleDeleteMovieBySaved}
+                    isLoading={isLoading}
+                    loggedIn={loggedIn}
+                    onHamburgerClick={handleOpenAndCloseSideMenu}
+                  />
+                }
+              />
+              <Route
+                path="/saved-movies"
+                element={
+                  <ProtectedRoute
+                    element={SavedMovies}
+                    savedCards={savedCards}
+                    onCardDelete={handleDeleteMovieBySaved}
+                    loggedIn={loggedIn}
+                    onHamburgerClick={handleOpenAndCloseSideMenu}
+                  />
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute
+                    element={Profile}
+                    onUpdateUser={handleUpdateUser}
+                    onLogout={handleLogout}
+                    onLoading={isLoading}
+                    loggedIn={loggedIn}
+                    onHamburgerClick={handleOpenAndCloseSideMenu}
+                  />
+                }
+              />
               <Route
                 path="/signin"
                 element={
@@ -290,10 +271,9 @@ function App() {
             </Routes>
             <Hamburger
               isSideMenuOpen={isSideMenuOpen}
-              onClose={handleCloseSideMenu}
+              onClose={handleOpenAndCloseSideMenu}
             />
-          </CurrentUserContext.Provider>
-        )}
+      </CurrentUserContext.Provider>
     </div>
   );
 }

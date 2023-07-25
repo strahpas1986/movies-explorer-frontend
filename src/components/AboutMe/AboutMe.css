@@ -8,7 +8,6 @@
 
 .about-me__title {
   display: grid;
-  font-family: Inter;
   grid-template-columns: minmax(292px, 600px) 270px;
   grid-template-rows: repeat(3, min-content) 1fr;
   grid-template-areas:
@@ -26,7 +25,6 @@
   margin: 0;
   text-align: left;
   grid-area: name;
-  font-family: Inter;
   font-weight: 400;
   font-size: 50px;
   line-height: 1.16;
@@ -35,7 +33,6 @@
 }
 
 .about-me__subtitle {
-  font-family: Inter;
   text-align: left;
   margin-top: 18px;
   margin-bottom: 0;
@@ -47,7 +44,6 @@
 }
 
 .about-me__descr {
-  font-family: Inter;
   text-align: left;
   margin-top: 26px;
   margin-bottom: 0;
@@ -59,7 +55,6 @@
 }
 
 .about-me__link {
-  font-family: Inter;
   align-self: end;
   margin-right: auto;
   grid-area: link;
@@ -76,8 +71,57 @@
   grid-area: img;
   object-fit: contain;
   border-radius: 10px;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.23;
-  color: #000000;
+}
+
+@media screen and (max-width: 748px) {
+  .about-me__title {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(4, min-content);
+    grid-template-areas:
+      "img"
+      "name"
+      "profession"
+      "descr"
+      "link";
+  }
+
+  .about-me__name {
+    margin-top: 40px;
+  }
+
+  .about-me__link {
+    margin-top: 40px;
+  }
+
+  .about-me__image {
+    width: 292px;
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .about-me {
+    padding: 70px 14px 51px;
+  }
+
+  .about-me__title {
+    margin-top: 60px;
+  }
+
+  .about-me__name {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .about-me__subtitle {
+    margin-top: 20px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .about-me__descr {
+    max-width: 292px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
 }

@@ -5,8 +5,12 @@ import "./Movies.css";
 
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
-import { DURATION_MOV, WIDTH_BREAKPOINT } from '../../utils/constants';
+import { handleMovieFilter, handleMovieSearch } from "../../utils/utils";
+
+import { WIDTH_BREAKPOINT } from '../../utils/constants';
 
 function Movies({
   savedCards,
@@ -14,6 +18,8 @@ function Movies({
   onCardSave,
   onCardDelete,
   isLoading,
+  loggedIn,
+  onHamburgerClick,
 }) {
   const [initialCards, setInitialCards] = useState([]);
   const [cardsRendering, setCardsRendering] = useState([]);
@@ -23,39 +29,6 @@ function Movies({
   const [isSearching, setIsSearching] = useState(false);
   const [cardsParams, setCardsParams] = useState({});
   const windowWidth = useResize();
-
-  const handleMovieSearch = (movies, searchQuery, isSavedMovies) => {
-    const normalizeSearchQuery = searchQuery.toLowerCase();
-    const result = movies.filter((movie) => {
-      const normalizeNameRu = movie.nameRU.toLowerCase();
-      const normalizeNameEn = movie.nameEN.toLowerCase();
-      return (
-        normalizeNameRu.includes(normalizeSearchQuery) ||
-        normalizeNameEn.includes(normalizeSearchQuery)
-      );
-    });
-    if (!isSavedMovies) {
-      localStorage.setItem("foundMovies", JSON.stringify(result));
-      localStorage.setItem("moviesSearchQuery", normalizeSearchQuery);
-    } else {
-      localStorage.setItem("savedMoviesSearchQuery", normalizeSearchQuery);
-    }
-    return result;
-  }
-
-  const handleMovieFilter = (movies, isFilterOn, isSavedMovies) => {
-    if (!isSavedMovies) {
-      localStorage.setItem("isMoviesFilterOn", isFilterOn);
-    } else {
-      localStorage.setItem("isSavedMoviesFilterOn", isFilterOn);
-    }
-    if (isFilterOn) {
-      const result = movies.filter((movie) => movie.duration <= DURATION_MOV);
-      return result;
-    } else {
-      return movies;
-    }
-  }
 
   const cbSearchAndFilter = useCallback(
     (cards, searchQuery) => {
@@ -151,6 +124,7 @@ function Movies({
 
   return (
     <main className="movies">
+      <Header onHamburgerClick={onHamburgerClick}/>
       <SearchForm
         onSearch={cbSearchSibmit}
         onFilterChange={cbFilterMovies}
@@ -166,6 +140,7 @@ function Movies({
         onCardDelete={onCardDelete}
         isLoading={isLoading}
       />
+      <Footer />
     </main>
   );
 

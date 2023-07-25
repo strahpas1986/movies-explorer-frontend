@@ -4,8 +4,8 @@ import NavTab from '../NavTab/NavTab';
 
 function AboutProject({ aboutRef }) {
   return (
-    <section className='about-project' ref={aboutRef}>
-      <NavTab title="О проекте" />
+    <section className='about-project' id='about-project'>
+      <NavTab title="О проекте"/>
       <div className='about-project__columns'>
         <div className='about-project__column'>
           <h3 className='about-project__subheader'>
