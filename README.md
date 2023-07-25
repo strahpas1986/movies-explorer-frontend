@@ -48,7 +48,7 @@
 ### Ссылки
 
 - [Ссылка на репозиторий проекта](https://github.com/strahpas1986/movies-explorer-frontend)
-- [Ссылка на PullRequest](https://github.com/strahpas1986/movies-explorer-frontend/pull/2)
+- [Ссылка на PullRequest](https://github.com/strahpas1986/movies-explorer-frontend/pull/1)
 - [Ссылка на сайт](https://movies-strahpas.nomoredomains.rocks)
 - [Ссылка на API проекта](https://api.movies-strahpas.nomoredomains.rocks)
 - IP-адрес проекта 51.250.12.225
