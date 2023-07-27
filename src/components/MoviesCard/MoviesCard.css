@@ -48,7 +48,7 @@
   width: 8px;
   height: 8px;
   background: url("../../images/delete-saved.svg") no-repeat center / cover;
-  opacity: 0;
+  opacity: 1;
 }
 
 .movies-card__btn-action_place_saved-movies:hover {
