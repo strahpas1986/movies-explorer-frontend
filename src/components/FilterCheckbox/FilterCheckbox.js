@@ -9,7 +9,7 @@ function FilterCheckbox({ onFilterChange, isFilterOn, isSearching }) {
         name="toggle"
         type="checkbox"
         disabled={isSearching ? true : false}
-        value={isFilterOn}
+        checked={isFilterOn}
         onChange={(evt) => onFilterChange(evt.target.checked)}
       />
       <span className="filter-checkbox__track"></span>

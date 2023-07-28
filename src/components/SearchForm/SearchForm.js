@@ -64,7 +64,6 @@ function SearchForm({ onSearch, onFilterChange, isFilterOn, isSearching }) {
             placeholder="Фильм"
             type="search"
             autoComplete="off"
-            autoCorrect="off"
             autoCapitalize="off"
             disabled={isSearching ? true : false}
             onChange={(e) => setSearchQuery(e.target.value)}

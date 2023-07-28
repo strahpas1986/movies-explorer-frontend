@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import './App.css';
 
 import AppLayout from '../AppLayout/AppLayout';
+import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from "../Profile/Profile";
@@ -24,6 +25,11 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isSideMenuOpen, setSideMenuStatus] = useState(false);
+  const [isInfoTooltipOpen ,setIsInfoTooltipOpen] = useState(false);
+  const [isSuccessInfoTooltipStatus, setIsSuccessInfoTooltipStatus] = useState({
+    isSuccess: true,
+    text: 'Вы успешно зарегистрировались!'
+  });
   const [isLoading, setLoading] = useState(false);
   const [savedCards, setSavedCards] = useState([]);
   const [serverErrorText, setServerErrorText] = useState("");
@@ -36,9 +42,13 @@ function App() {
       const userData = await MainApi.updateUserInfo({ name, email });
       if (userData) {
         setCurrentUser(userData);
+        setIsSuccessInfoTooltipStatus({isSuccess:true, text:'Данные успешно обновлены!'});
+        setIsInfoTooltipOpen(true);
       }
     } catch (err) {
       setServerErrorText(err);
+      setIsSuccessInfoTooltipStatus({isSuccess: false, text:'Что-то пошло не так! Попробуйте ещё раз.'});
+      setIsInfoTooltipOpen(true);
       console.error(err);
     } finally {
       setLoading(false);
@@ -53,9 +63,13 @@ function App() {
       if (userData) {
         setLoggedIn(true);
         navigate("/movies", { replace: true });
+        setIsSuccessInfoTooltipStatus({isSuccess:true, text:'Вы успешно вошли в аккаунт!'});
+        setIsInfoTooltipOpen(true);
       }
     } catch (err) {
       setServerErrorText(err);
+      setIsSuccessInfoTooltipStatus({isSuccess: false, text:'Что-то пошло не так! Попробуйте ещё раз.'});
+      setIsInfoTooltipOpen(true);
       console.error(err);
     } finally {
       setLoading(false);
@@ -69,10 +83,14 @@ function App() {
       const userData = await MainApi.register({ name, email, password });
       if (userData) {
         handleAuthorize({ email, password });
+        setIsSuccessInfoTooltipStatus({isSuccess:true, text:'Вы успешно зарегистрировались!'});
+        setIsInfoTooltipOpen(true);
         navigate("/movies", { replace: true });
       }
     } catch (err) {
       setServerErrorText(err);
+      setIsSuccessInfoTooltipStatus({isSuccess: false, text:'Что-то пошло не так! Попробуйте ещё раз.'});
+      setIsInfoTooltipOpen(true);
       console.error(err);
     } finally {
       setLoading(false);
@@ -175,6 +193,10 @@ function App() {
     }
   }
 
+  const closeAllPopups = () => {
+    setIsInfoTooltipOpen(false);
+  }
+
   useEffect(() => {
     cbTokenCheck();
   }, [loggedIn, cbTokenCheck]);
@@ -272,6 +294,12 @@ function App() {
             <Hamburger
               isSideMenuOpen={isSideMenuOpen}
               onClose={handleOpenAndCloseSideMenu}
+            />
+            <InfoTooltip
+              name = 'register'
+              isOpen = {isInfoTooltipOpen}
+              onClose = {closeAllPopups}
+              isSuccessInfoTooltipStatus = {isSuccessInfoTooltipStatus}
             />
       </CurrentUserContext.Provider>
     </div>
