@@ -1,0 +1,43 @@
+.form-cap {
+  max-width: 456px;
+  margin: 0 auto;
+  padding: 70px 30px 70px;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+}
+
+.form-cap__text {
+  margin-top: 16px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.21;
+  text-align: center;
+  color: #000000;
+}
+
+.form-cap__link {
+  text-decoration: none;
+  color: #4285f4;
+  transition: opacity 0.5s;
+}
+
+@media screen and (max-width: 990px) {
+  .form-cap {
+    padding-top: 232px;
+    padding-bottom: 232px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .form-cap {
+    padding-top: 56px;
+    padding-bottom: 30px;
+  }
+
+  .form-cap__text {
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
