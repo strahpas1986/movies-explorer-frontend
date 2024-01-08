@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import './AccountPage.css';
+import './AccountPage.scss';
 
 function AccountPage({ isSideMenu, onClose }) {
   return (

@@ -4,7 +4,7 @@ import Navigation from '../Navigation/Navigation';
 import AccountPage from '../AccountPage/AccountPage';
 import Logo from '../Logo/Logo';
 
-import './Header.css';
+import './Header.scss';
 
 function Header({ onHamburgerClick, loggedIn }) {
 

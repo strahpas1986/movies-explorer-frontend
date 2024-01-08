@@ -1,0 +1,19 @@
+.account-link {
+  padding: 6px 29px 6px 10px;
+  background: url("../../images/icon-login.svg") 78px center/12px no-repeat;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  color: #000000;
+  text-decoration: none;
+  transition: opacity 0.5s;
+  &__place_side-menu {
+    margin-top: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .account-link_hidden {
+    display: none;
+  }
+}

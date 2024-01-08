@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
-import './App.css';
+import './App.scss';
 
 import AppLayout from '../AppLayout/AppLayout';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';

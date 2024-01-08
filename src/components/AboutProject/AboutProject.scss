@@ -1,0 +1,163 @@
+.about-project {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 70px;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
+
+  &__title {
+    margin: 0;
+    color: #000;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    text-align: left;
+    padding-bottom: 23px;
+    border-bottom: 1px solid #000;
+  }
+
+  &__columns {
+    margin: 0;
+    padding-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__subheader {
+    margin: 0;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    text-align: left;
+  }
+
+  &__descr {
+    margin: 0;
+    padding-top: 26px;
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+  }
+
+  &__plan-weekly {
+    width: 100%;
+    display: flex;
+    margin-top: 110px;
+  }
+
+  &__stage {
+    display: flex;
+    flex-direction: column;
+    &_first {
+      width: 20%;
+    }
+    &_second {
+      width: 80%;
+    }
+    &-subheader {
+      margin: 0;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      box-sizing: border-box;
+      color: #FFF;
+      text-align: center;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      background-color: #3456F3;
+
+      &_second {
+        color: #000000;
+        background-color: #F2F2F2;
+      }
+    }
+    &-descr {
+      margin: 0;
+      padding-top: 14px;
+      color: #A0A0A0;
+      text-align: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 17px;
+    }
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .about-project {
+    padding: 90px 50px;
+    &__columns {
+      gap: 37px;
+    }
+    &__subheader {
+      margin-top: 22px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    &__plan-weekly {
+      margin-top: 93px;
+    }
+    &__stage_first {
+      width: 21%;
+    }
+    &__stage_second {
+      width: 79%;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .about-project {
+    padding: 70px 18px;
+    &__columns {
+      flex-direction: column;
+      padding-top: 60px;
+      gap: 56px;
+    }
+    &__subtitle {
+      font-size: 18px;
+      line-height: 1.22;
+    }
+    &__subheader {
+      margin-top: 16px;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+    &__plan-weekly {
+      margin-top: 60px;
+    }
+    &__stage {
+      &_first {
+        width: 35%;
+      }
+      &_second {
+        width: 65%;
+      }
+      &-subheader {
+        padding-top: 11px;
+        padding-bottom: 11px;
+        font-size: 11px;
+        line-height: 1.18;
+      }
+      &-descr {
+        margin-top: 10px;
+        font-size: 11px;
+        line-height: 1.18;
+      }
+    }
+  }
+}
+

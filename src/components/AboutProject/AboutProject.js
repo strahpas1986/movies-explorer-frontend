@@ -1,4 +1,4 @@
-import './AboutProject.css';
+import './AboutProject.scss';
 
 import NavTab from '../NavTab/NavTab';
 

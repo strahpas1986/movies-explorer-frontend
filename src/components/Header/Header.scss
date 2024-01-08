@@ -1,0 +1,72 @@
+.header {
+  max-width: 100%;
+  &__wrapper {
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 18px 70px;
+    box-sizing: border-box;
+    background-color: #FAFAFA;
+    &_condition {
+      background-color: #DDDEE3;
+    }
+  }
+  &__menu {
+    @media screen and (max-width: 620px) {
+      gap: 14px;
+    }
+  }
+  &__menu_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    @media screen and (max-width: 990px) {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+    @media screen and (max-width: 620px) {
+      padding-right: 14px;
+      padding-left: 14px;
+    }
+  }
+  &__link {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.33;
+    text-decoration: none;
+    color: #000000;
+    &__type-login {
+      color: #FFFFFF;
+      padding: 8px 20px;
+      border-radius: 3px;
+      background-color: #3456F3;
+    }
+    @media screen and (max-width: 620px) {
+      font-size: 10px;
+      line-height: 1.6;
+      &_type-login {
+        padding: 7px 12px;
+      }
+    }
+  }
+  &__btn-hamburger {
+    display: none;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    margin-right: 8px;
+    border: none;
+    background: url("../../images/hamburger-icon.svg") center center/cover no-repeat;
+    cursor: pointer;
+    transition: opacity 0.5s;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+}

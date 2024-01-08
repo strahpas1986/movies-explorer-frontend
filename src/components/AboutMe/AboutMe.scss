@@ -1,0 +1,127 @@
+.about-me {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 70px 101px;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
+
+  &__title {
+    display: grid;
+    grid-template-columns: minmax(292px, 600px) 270px;
+    grid-template-rows: repeat(3, min-content) 1fr;
+    grid-template-areas:
+      "name img"
+      "profession img"
+      "descr img"
+      "link img";
+    justify-content: space-between;
+    align-content: start;
+    column-gap: 50px;
+    margin-top: 66px;
+  }
+
+  &__name {
+    margin: 0;
+    text-align: left;
+    grid-area: name;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+    color: #000000;
+  }
+
+  &__subtitle {
+    text-align: left;
+    margin-top: 18px;
+    margin-bottom: 0;
+    grid-area: profession;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    color: #000000;
+  }
+
+  &__descr {
+    text-align: left;
+    margin-top: 26px;
+    margin-bottom: 0;
+    grid-area: descr;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.57;
+    color: #000000;
+  }
+
+  &__link {
+    align-self: end;
+    margin-right: auto;
+    grid-area: link;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.21;
+    color: #000000;
+    text-decoration: none;
+    transition: opacity 0.5s;
+  }
+
+  &__image {
+    width: 270px;
+    grid-area: img;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .about-me__title {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(4, min-content);
+    grid-template-areas:
+      "img"
+      "name"
+      "profession"
+      "descr"
+      "link";
+  }
+
+  .about-me__name {
+    margin-top: 40px;
+  }
+
+  .about-me__link {
+    margin-top: 40px;
+  }
+
+  .about-me__image {
+    width: 292px;
+    justify-self: center;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .about-me {
+    padding: 70px 14px 51px;
+  }
+
+  .about-me__title {
+    margin-top: 60px;
+  }
+
+  .about-me__name {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .about-me__subtitle {
+    margin-top: 20px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .about-me__descr {
+    max-width: 292px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}
