@@ -2,7 +2,6 @@ export const ESC_KEY = "Escape";
 
 export const MOVIESAPI_URL = "https://api.nomoreparties.co";
 export const MAINAPI_URL = "https://api.vladimirstrashnov.ru";
-// export const MAINAPI_URL = "http://localhost:3001";
 
 export const NAME_REG_EXP = "^[A-Za-zА-Яа-яЁё\\-\\s]+$";
 
