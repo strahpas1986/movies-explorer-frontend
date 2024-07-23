@@ -1,5 +1,5 @@
 // Импорт стилей
-import "./Footer.css";
+import "./Footer.scss";
 
 // Компонент Footer
 function Footer() {
