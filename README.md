@@ -49,9 +49,9 @@
 
 - [Ссылка на репозиторий проекта](https://github.com/strahpas1986/movies-explorer-frontend)
 - [Ссылка на PullRequest](https://github.com/strahpas1986/movies-explorer-frontend/pull/1)
-- [Ссылка на сайт](https://movies-strahpas.nomoredomains.rocks)
-- [Ссылка на API проекта](https://api.movies-strahpas.nomoredomains.rocks)
-- IP-адрес проекта 51.250.12.225
+- [Ссылка на сайт](https://vladimirstrashnov.ru)
+- [Ссылка на API проекта](https://api.vladimirstrashnov.ru)
+- IP-адрес проекта 91.200.150.203
   
 ## Ход выполнения проекта
 
@@ -67,6 +67,15 @@
 - Семантическая вёрстка
 
 ### Чему я научился работая над проектом
+- Адаптивной верстке
+- Семантической верстке
+- Овладел основами полулярного фреймворка ReactJS
+
+### Планы на доработку проекта
+- Внедрить препроцессор SASS (SCSS)
+- Оптимизировать цыетовую схему и сделать проект легко изменяемым
+- Перевести проект в Typescript (близжайшие 1-2 месяца)
+- В перспективе переписать проект на NextJS
 
 ## Автор
 
