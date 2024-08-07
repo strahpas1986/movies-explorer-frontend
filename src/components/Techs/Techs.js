@@ -1,4 +1,4 @@
-import './Techs.css';
+import './Techs.scss';
 
 import NavTab from '../NavTab/NavTab';
 

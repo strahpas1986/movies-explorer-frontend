@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { NAME_REG_EXP } from "../../utils/constants";
 import useValidation from "../../utils/useValidation";
 
-import './Register.css';
+import './Register.scss';
 
 import FormCap from "../FormCap/FormCap";
 

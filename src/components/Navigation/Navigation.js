@@ -2,7 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 
 // Импорт стилей
-import "./Navigation.css";
+import "./Navigation.scss";
 
 // Компонент Navigation
 function Navigation({ isSideMenu, onClose }) {

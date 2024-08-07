@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 
 // Импорт стилей
-import "./NotFound.css";
+import "./NotFound.scss";
 
 // Компонент NotFound
 function NotFound() {

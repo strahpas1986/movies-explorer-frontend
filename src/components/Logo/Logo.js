@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 // Импорт стилей
-import "./Logo.css";
+import "./Logo.scss";
 
 // Компонент Logo
 function Logo({ place }) {

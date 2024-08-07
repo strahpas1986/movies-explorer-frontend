@@ -1,5 +1,5 @@
 // Импорт стилей
-import "./Preloader.css";
+import "./Preloader.scss";
 
 // Компонент Preloader
 function Preloader() {

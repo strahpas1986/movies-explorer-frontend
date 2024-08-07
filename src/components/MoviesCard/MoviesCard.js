@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import "./MoviesCard.css";
+import "./MoviesCard.scss";
 
 import { MOVIESAPI_URL } from "../../utils/constants";
 

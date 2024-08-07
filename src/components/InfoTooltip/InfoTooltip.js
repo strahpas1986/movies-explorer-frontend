@@ -1,6 +1,6 @@
 import succes from '../../images/icon-succes.svg';
 import error from '../../images/icon-error.svg';
-import './InfoTooltip.css';
+import './InfoTooltip.scss';
 
 function InfoTooltip({name , isOpen, onClose, isSuccessInfoTooltipStatus}) {
   const {isSuccess, text} = isSuccessInfoTooltipStatus;

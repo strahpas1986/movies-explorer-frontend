@@ -1,5 +1,5 @@
 // Импорт стилей
-import "./Portfolio.css";
+import "./Portfolio.scss";
 
 // Компонент Portfolio
 function Portfolio() {

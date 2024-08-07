@@ -1,4 +1,4 @@
-import "./Hamburger.css";
+import "./Hamburger.scss";
 
 import Overlay from "../Overlay/Overlay";
 import Navigation from "../Navigation/Navigation";

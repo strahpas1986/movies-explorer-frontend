@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 // Импорт стилей
-import "./Overlay.css";
+import "./Overlay.scss";
 
 // Импорт переменных
 import { ESC_KEY } from "../../utils/constants";

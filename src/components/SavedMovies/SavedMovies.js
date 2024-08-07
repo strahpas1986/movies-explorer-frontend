@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 
-import "./SavedMovies.css";
+import "./SavedMovies.scss";
 
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";

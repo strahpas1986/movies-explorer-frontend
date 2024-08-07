@@ -1,4 +1,4 @@
-import './FormTitle.css';
+import './FormTitle.scss';
 
 function FormTitle({ title, place }) {
   return (

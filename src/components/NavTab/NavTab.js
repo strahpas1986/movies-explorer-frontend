@@ -1,5 +1,5 @@
 // Импорт стилей
-import "./NavTab.css";
+import "./NavTab.scss";
 
 // Компонент NavTab
 function NavTab({ title }) {

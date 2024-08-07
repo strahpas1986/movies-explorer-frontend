@@ -3,7 +3,7 @@ import FormTitle from "../FormTitle/FormTitle";
 import Form from "../Form/Form";
 import Logo from "../Logo/Logo";
 
-import './FormCap.css';
+import './FormCap.scss';
 
 function FormCap({
   title,

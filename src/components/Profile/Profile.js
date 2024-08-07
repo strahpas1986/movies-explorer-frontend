@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import useValidation from "../../utils/useValidation";
 
-import "./Profile.css";
+import "./Profile.scss";
 
 import Header from "../Header/Header";
 import Form from "../Form/Form";

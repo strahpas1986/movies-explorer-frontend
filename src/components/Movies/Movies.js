@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from "react";
 import useResize from '../../utils/useResize';
 
-import "./Movies.css";
+import "./Movies.scss";
 
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';

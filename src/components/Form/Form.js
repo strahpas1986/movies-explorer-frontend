@@ -1,5 +1,5 @@
 // Импорт стилей
-import "./Form.css";
+import "./Form.scss";
 
 // Компонент Form
 function Form({
